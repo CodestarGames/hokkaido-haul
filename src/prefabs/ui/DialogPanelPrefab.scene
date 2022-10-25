@@ -1,0 +1,77 @@
+{
+    "id": "908e4618-f1af-46a1-b2ad-bd46fd5d8d3a",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1024,
+        "borderHeight": 416
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "97f1a249-78ab-4a63-bc78-42700bb8684a",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "081374ee-6dc5-49fb-9a96-108e92016147",
+                    "id": "cf7645a3-6cd6-4ccd-a0f2-211b92c55c50",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "backgroundNinePatch",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "e518a221-2eb1-43ba-91ab-cf107840f162",
+                    "label": "avatarImg",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "avatars",
+                        "frame": 1
+                    },
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "1c72486e-c7d5-4c30-a391-88721518cc93",
+                    "label": "text",
+                    "scope": "NESTED_PREFAB",
+                    "components": [],
+                    "x": 116,
+                    "y": 8,
+                    "scaleX": 2,
+                    "scaleY": 2.5,
+                    "tintTopLeft": "#4C8058",
+                    "tintTopRight": "#4C8058",
+                    "tintBottomLeft": "#4C8058",
+                    "tintBottomRight": "#4C8058",
+                    "tintFill": true,
+                    "text": "The stupid muppet jumped over the brown dog. It's time for premiere two~! the quick brown fox jumped over the lazy dog. 0123456789 !,;:",
+                    "font": "pixel",
+                    "fontSize": 6,
+                    "maxWidth": 358
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

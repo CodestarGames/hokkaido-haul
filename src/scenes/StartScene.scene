@@ -1,0 +1,38 @@
+{
+    "id": "35a15e33-678e-46dd-b642-c42d8613dfbf",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "SceneExtended",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "StartScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 480,
+        "borderHeight": 416
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "a4101b24-eb67-4ded-869d-881b626ad55b",
+            "label": "premierTendoImg",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "PremierTendo"
+            },
+            "x": 240,
+            "y": -58,
+            "scaleX": 4,
+            "scaleY": 4
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

@@ -1,0 +1,257 @@
+{
+    "id": "51778bea-2539-4c97-90a5-514b7a9bf4f7",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1024,
+        "borderHeight": 416
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "490a8973-5657-400a-a969-6a6c9c770ffc",
+            "label": "container_1",
+            "components": [],
+            "y": -2,
+            "list": [
+                {
+                    "prefabId": "081374ee-6dc5-49fb-9a96-108e92016147",
+                    "id": "a32f0a3e-7d72-4727-b494-e64c0354aa6e",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "width",
+                        "height"
+                    ],
+                    "label": "HUDPanelPrefab",
+                    "components": [],
+                    "x": 0,
+                    "y": 0,
+                    "width": 480,
+                    "height": 48
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "8be46d12-6da0-4e45-9ca4-7c88b4b19939",
+                    "label": "scoreText",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 16,
+                    "y": 7,
+                    "scaleX": 2,
+                    "scaleY": 2.5,
+                    "tintTopLeft": "#4C8058",
+                    "tintTopRight": "#4C8058",
+                    "tintBottomLeft": "#4C8058",
+                    "tintBottomRight": "#4C8058",
+                    "tintFill": true,
+                    "text": "Donations:$0",
+                    "font": "pixel",
+                    "fontSize": 6,
+                    "maxWidth": 358
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "df345da7-213d-451a-af9d-129c54901661",
+                    "label": "KMText",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 18,
+                    "y": 23,
+                    "scaleX": 2,
+                    "scaleY": 2.5,
+                    "tintTopLeft": "#4C8058",
+                    "tintTopRight": "#4C8058",
+                    "tintBottomLeft": "#4C8058",
+                    "tintBottomRight": "#4C8058",
+                    "tintFill": true,
+                    "text": "Distance: 0km of 750",
+                    "font": "pixel",
+                    "fontSize": 6,
+                    "maxWidth": 358
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "b1df09b3-bf74-4d7b-8984-9ef5e71c3a9d",
+                    "label": "HUDPanelPrefab_1",
+                    "components": [],
+                    "x": 286,
+                    "y": 3,
+                    "originX": 0,
+                    "originY": 0,
+                    "strokeColor": "#4C8058",
+                    "isStroked": true,
+                    "width": 180,
+                    "height": 40
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "cec986b1-5529-4f67-a732-2eed3f1b96de",
+                    "label": "energyText",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 298,
+                    "y": 7,
+                    "scaleX": 2,
+                    "scaleY": 2.5,
+                    "tintTopLeft": "#4C8058",
+                    "tintTopRight": "#4C8058",
+                    "tintBottomLeft": "#4C8058",
+                    "tintBottomRight": "#4C8058",
+                    "tintFill": true,
+                    "text": "HYPE",
+                    "font": "pixel",
+                    "fontSize": 6,
+                    "maxWidth": 358
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "c9625ef8-200a-4322-9d60-d089224528e6",
+                    "label": "speedText",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 298,
+                    "y": 24,
+                    "scaleX": 2,
+                    "scaleY": 2.5,
+                    "tintTopLeft": "#4C8058",
+                    "tintTopRight": "#4C8058",
+                    "tintBottomLeft": "#4C8058",
+                    "tintBottomRight": "#4C8058",
+                    "tintFill": true,
+                    "text": "SPEED",
+                    "font": "pixel",
+                    "fontSize": 6,
+                    "maxWidth": 358
+                },
+                {
+                    "type": "Image",
+                    "id": "592b53ac-f3e5-4caa-b1a1-06539e83feb1",
+                    "label": "energyRect1",
+                    "components": [],
+                    "texture": {
+                        "key": "rootbeer-small"
+                    },
+                    "x": 380,
+                    "y": 15
+                },
+                {
+                    "type": "Image",
+                    "id": "1d6a00b8-0e9c-46fd-8a79-fd42779ac582",
+                    "label": "energyRect2",
+                    "components": [],
+                    "texture": {
+                        "key": "rootbeer-small"
+                    },
+                    "x": 392,
+                    "y": 15
+                },
+                {
+                    "type": "Image",
+                    "id": "ae09b11d-3644-470b-869d-2cefb7cc6720",
+                    "label": "energyRect3",
+                    "components": [],
+                    "texture": {
+                        "key": "rootbeer-small"
+                    },
+                    "x": 404,
+                    "y": 15
+                },
+                {
+                    "type": "Image",
+                    "id": "88f37f5a-8e12-4032-af0e-00821a0b4f16",
+                    "label": "energyRect4",
+                    "components": [],
+                    "texture": {
+                        "key": "rootbeer-small"
+                    },
+                    "x": 416,
+                    "y": 15
+                },
+                {
+                    "type": "Image",
+                    "id": "932fd404-3bd4-4590-b1c0-3fc6897f8bcb",
+                    "label": "energyRect5",
+                    "components": [],
+                    "texture": {
+                        "key": "rootbeer-small"
+                    },
+                    "x": 428,
+                    "y": 15
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "a12e3f0a-3999-4b34-8e27-9e741c44edc7",
+                    "label": "speedRect1",
+                    "components": [],
+                    "x": 380,
+                    "y": 31,
+                    "isFilled": true,
+                    "fillColor": "#4C8058",
+                    "width": 8,
+                    "height": 12
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "09b3669b-3f59-4073-a0fb-aabe4f6e8d74",
+                    "label": "speedRect2",
+                    "components": [],
+                    "x": 392,
+                    "y": 31,
+                    "isFilled": true,
+                    "fillColor": "#4C8058",
+                    "width": 8,
+                    "height": 12
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "8bbd554e-1d18-499f-a913-35624af335e6",
+                    "label": "speedRect3",
+                    "components": [],
+                    "x": 404,
+                    "y": 31,
+                    "isFilled": true,
+                    "fillColor": "#4C8058",
+                    "width": 8,
+                    "height": 12
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "aef57996-93a0-47b2-a898-86449597dd97",
+                    "label": "speedRect4",
+                    "components": [],
+                    "x": 416,
+                    "y": 31,
+                    "isFilled": true,
+                    "fillColor": "#4C8058",
+                    "width": 8,
+                    "height": 12
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "a72125a2-8088-45cf-96c9-b322a24ad0e9",
+                    "label": "speedRect5",
+                    "components": [],
+                    "x": 428,
+                    "y": 31,
+                    "isFilled": true,
+                    "fillColor": "#4C8058",
+                    "width": 8,
+                    "height": 12
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

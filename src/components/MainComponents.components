@@ -1,0 +1,79 @@
+{
+    "components": [
+        {
+            "name": "CompPhysics",
+            "baseClass": "",
+            "gameObjectType": "any",
+            "properties": [
+                {
+                    "name": "isStatic",
+                    "label": "isStatic",
+                    "tooltip": "isStatic",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "bodyWidth",
+                    "label": "bodyWidth",
+                    "tooltip": "bodyWidth",
+                    "defValue": -1,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "bodyHeight",
+                    "label": "bodyHeight",
+                    "tooltip": "bodyHeight",
+                    "defValue": -1,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "bodyOffsetX",
+                    "label": "bodyOffsetX",
+                    "tooltip": "bodyOffsetX",
+                    "defValue": -1,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "bodyOffsetY",
+                    "label": "bodyOffsetY",
+                    "tooltip": "bodyOffsetY",
+                    "defValue": -1,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "allowGravity",
+                    "label": "allowGravity",
+                    "tooltip": "allowGravity",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Object Script Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    },
+    "outputLang": "TYPE_SCRIPT",
+    "exportClass": true,
+    "autoImport": true
+}

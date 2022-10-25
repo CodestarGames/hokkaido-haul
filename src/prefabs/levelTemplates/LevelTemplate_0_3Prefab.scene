@@ -1,0 +1,173 @@
+{
+    "id": "55a39e90-c398-4bef-ac11-3a3ccee5115d",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "generateAwakeHandler": true,
+        "superClassName": "LevelTemplatePrefabBase",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1024,
+        "borderHeight": 416
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "b666c701-3aa7-49f4-b235-bb86163ed758",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "f0062471-c7e5-4062-86fe-ee985be374f1",
+                    "label": "boundsRect",
+                    "components": [],
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false,
+                    "strokeColor": "#d84a4a",
+                    "isStroked": true,
+                    "width": 1440,
+                    "height": 420
+                },
+                {
+                    "type": "TileSprite",
+                    "id": "305337d0-7113-472e-9b45-643bade726b4",
+                    "label": "roadTileSprite",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "road"
+                    },
+                    "y": 387.69590250651044,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 160,
+                    "height": 32
+                },
+                {
+                    "type": "TileSprite",
+                    "id": "92c799f9-d639-414f-97cb-2d5ee9f2bd74",
+                    "label": "roadTileSprite_3",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "road"
+                    },
+                    "x": 960,
+                    "y": 387.69590250651044,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 480,
+                    "height": 32
+                },
+                {
+                    "prefabId": "8d4bb6e6-3e5a-4d57-b61d-c6f940e4194b",
+                    "id": "dcd95b8d-8630-4c7c-b33d-e665bec1e348",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "texture"
+                    ],
+                    "label": "enemyPrefabInst",
+                    "components": [],
+                    "texture": {
+                        "key": "bear"
+                    },
+                    "x": 578,
+                    "y": 265
+                },
+                {
+                    "prefabId": "c806eeb3-1c96-4491-8f88-7519a46ed1b5",
+                    "id": "7d3fcb05-0fb9-4ac1-a549-7d87c6e8d6c0",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "width",
+                        "height"
+                    ],
+                    "label": "roadTileSprite_4",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 213,
+                    "y": 278,
+                    "width": 160,
+                    "height": 32
+                },
+                {
+                    "prefabId": "c806eeb3-1c96-4491-8f88-7519a46ed1b5",
+                    "id": "3fdc5266-e412-4960-a1b7-03072de88992",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "width",
+                        "height"
+                    ],
+                    "label": "roadTileSprite_1",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 789,
+                    "y": 278,
+                    "width": 160,
+                    "height": 32
+                },
+                {
+                    "prefabId": "c806eeb3-1c96-4491-8f88-7519a46ed1b5",
+                    "id": "24b0b4f3-abbb-47e0-9c48-b54b273ef115",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "width",
+                        "height"
+                    ],
+                    "label": "roadTileSprite_2",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 501,
+                    "y": 278,
+                    "width": 160,
+                    "height": 32
+                },
+                {
+                    "prefabId": "8d4bb6e6-3e5a-4d57-b61d-c6f940e4194b",
+                    "id": "7baf6267-486b-4e80-b70a-9360ca4ca213",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "texture"
+                    ],
+                    "label": "enemyPrefab_2",
+                    "components": [],
+                    "texture": {
+                        "key": "bear"
+                    },
+                    "x": 878,
+                    "y": 258
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "parentLayer",
+            "label": "Property 1",
+            "tooltip": "Property 1",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Layer"
+            }
+        }
+    ]
+}

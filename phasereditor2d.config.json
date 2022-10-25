@@ -1,0 +1,11 @@
+{
+  "skip": [
+    "node_modules",
+    "dist",
+    "package-lock.json",
+    "package.json",
+    "webpack.config.js",
+    "tsconfig.json"
+  ],
+  "plugins": []
+}

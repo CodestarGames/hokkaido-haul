@@ -1,0 +1,136 @@
+{
+    "id": "36e3048f-4fe5-476e-8346-7a1cc133fddc",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "SceneExtended",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "TitleScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1024,
+        "borderHeight": 416
+    },
+    "displayList": [
+        {
+            "type": "TileSprite",
+            "id": "93f3075d-8c2c-45df-b6d5-4cd9939e9c94",
+            "label": "mountain_bg",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "mountain-bg"
+            },
+            "originX": 0,
+            "originY": 0,
+            "width": 480,
+            "height": 416
+        },
+        {
+            "type": "Layer",
+            "id": "8c2b0620-9b0b-47c8-87ec-03e2d7301f2f",
+            "label": "bg_houses_layer",
+            "scope": "PUBLIC",
+            "components": [],
+            "list": []
+        },
+        {
+            "type": "TileSprite",
+            "id": "e8045aac-8f51-4d23-af2f-5039e6c63932",
+            "label": "roadTileSprite",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "road"
+            },
+            "y": 384,
+            "originX": 0,
+            "originY": 0,
+            "width": 480,
+            "height": 32
+        },
+        {
+            "type": "TileSprite",
+            "id": "31a442e7-c978-49b2-ba5e-472635b9e5ba",
+            "label": "sidewalkTileSprite",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "sidewalk"
+            },
+            "y": 351,
+            "originX": 0,
+            "originY": 0,
+            "width": 480,
+            "height": 32,
+            "tilePositionX": 16
+        },
+        {
+            "type": "Sprite",
+            "id": "25932c86-377a-4f88-806f-91d5368969a1",
+            "label": "bikes",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "bikes",
+                "frame": 0
+            },
+            "x": 245,
+            "y": 360
+        },
+        {
+            "type": "Image",
+            "id": "961fed9c-8954-4cb4-81ff-3e92b7250948",
+            "label": "title",
+            "components": [],
+            "texture": {
+                "key": "title"
+            },
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "b3d45cfe-52ee-4b8d-85f7-978d695197f3",
+            "label": "van_title",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "van-idle",
+                "frame": 0
+            },
+            "x": 79,
+            "y": 336
+        },
+        {
+            "type": "BitmapText",
+            "id": "fbd4faf7-9244-467f-b2bb-97eb7a059ca3",
+            "label": "startText",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 240,
+            "y": 272,
+            "scaleX": 2,
+            "scaleY": 2.5,
+            "originX": 0.5,
+            "tintTopLeft": "#a8e0a3",
+            "tintTopRight": "#a8e0a3",
+            "tintBottomLeft": "#a8e0a3",
+            "tintBottomRight": "#a8e0a3",
+            "tintFill": true,
+            "text": "press space or A button",
+            "font": "pixel",
+            "fontSize": 6,
+            "maxWidth": 358,
+            "dropShadowAlpha": 1
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

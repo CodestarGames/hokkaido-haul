@@ -1,0 +1,44 @@
+{
+    "id": "71aae4af-9ded-489e-b806-1f4cfbfc7514",
+    "settings": {
+        "createMethodName": "",
+        "preloadMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "exportClass": true,
+        "autoImport": true,
+        "generateAwakeHandler": false,
+        "compilerInsertSpaces": false,
+        "compilerTabSize": 4,
+        "borderWidth": 1024,
+        "borderHeight": 416,
+        "borderX": 0,
+        "borderY": 0
+    },
+    "sceneType": "PREFAB",
+    "displayList": [
+        {
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "type": "TileSprite",
+            "id": "fedabdd0-ab22-4461-a2cb-fc3817ef9945",
+            "label": "tilesprite_1",
+            "components": [],
+            "texture": {
+                "key": "overpass-pillar"
+            },
+            "x": 0,
+            "y": 0,
+            "originX": 0,
+            "originY": 0,
+            "width": 16,
+            "height": 128
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

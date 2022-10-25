@@ -1,0 +1,36 @@
+{
+    "id": "21b45361-9d26-467b-94e0-e30ebc40afbb",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerEnabled": false,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Hero",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 480
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "5b235bd3-9aec-4044-867a-1367eb86ed03",
+            "label": "player_idle0",
+            "components": [],
+            "texture": {
+                "key": "van-idle",
+                "frame": 0
+            },
+            "originY": 1
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

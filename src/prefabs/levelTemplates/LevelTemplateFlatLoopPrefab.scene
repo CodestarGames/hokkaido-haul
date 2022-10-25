@@ -1,0 +1,90 @@
+{
+    "id": "67515612-5dc8-4367-94ac-a199c59fc017",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "generateAwakeHandler": true,
+        "superClassName": "LevelTemplatePrefabBase",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1024,
+        "borderHeight": 416
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "b666c701-3aa7-49f4-b235-bb86163ed758",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "f0062471-c7e5-4062-86fe-ee985be374f1",
+                    "label": "boundsRect",
+                    "components": [],
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false,
+                    "strokeColor": "#d84a4a",
+                    "isStroked": true,
+                    "width": 960,
+                    "height": 420
+                },
+                {
+                    "type": "TileSprite",
+                    "id": "305337d0-7113-472e-9b45-643bade726b4",
+                    "label": "roadTileSprite",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "road"
+                    },
+                    "y": 387.69590250651044,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 480,
+                    "height": 32
+                },
+                {
+                    "type": "TileSprite",
+                    "id": "c703db5e-017b-4862-b8d6-1ce423940185",
+                    "label": "roadTileSprite_1",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "road"
+                    },
+                    "x": 480,
+                    "y": 387.69590250651044,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 480,
+                    "height": 32
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "parentLayer",
+            "label": "Property 1",
+            "tooltip": "Property 1",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Layer"
+            }
+        }
+    ]
+}

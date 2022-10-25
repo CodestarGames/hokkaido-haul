@@ -1,0 +1,231 @@
+{
+    "section1": {
+        "files": [
+            {
+                "url": "assets/sprites/ui/avatars.png",
+                "frameConfig": {
+                    "frameWidth": 96,
+                    "frameHeight": 96,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "avatars"
+            },
+            {
+                "url": "assets/sprites/obstacles/bear.png",
+                "type": "image",
+                "key": "bear"
+            },
+            {
+                "url": "assets/sprites/etc/bikes.png",
+                "frameConfig": {
+                    "frameWidth": 112,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "bikes"
+            },
+            {
+                "url": [
+                    "assets/sfx/death-fall.mp3"
+                ],
+                "type": "audio",
+                "key": "death-fall"
+            },
+            {
+                "url": "assets/sprites/obstacles/drone.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 16,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "drone"
+            },
+            {
+                "url": [
+                    "assets/sfx/game-complete-music.ogg"
+                ],
+                "type": "audio",
+                "key": "game-complete-music"
+            },
+            {
+                "url": [
+                    "assets/sfx/game-over-music.ogg"
+                ],
+                "type": "audio",
+                "key": "game-over-music"
+            },
+            {
+                "url": "assets/sprites/bg/house-1.png",
+                "type": "image",
+                "key": "house-1"
+            },
+            {
+                "url": "assets/sprites/bg/house-2.png",
+                "type": "image",
+                "key": "house-2"
+            },
+            {
+                "url": "assets/sprites/bg/house-3.png",
+                "type": "image",
+                "key": "house-3"
+            },
+            {
+                "url": "assets/sprites/bg/house-4.png",
+                "type": "image",
+                "key": "house-4"
+            },
+            {
+                "url": "assets/sprites/bg/house-5.png",
+                "type": "image",
+                "key": "house-5"
+            },
+            {
+                "url": [
+                    "assets/sfx/intro-music.ogg"
+                ],
+                "type": "audio",
+                "key": "intro-music"
+            },
+            {
+                "url": [
+                    "assets/sfx/jump.wav"
+                ],
+                "type": "audio",
+                "key": "jump"
+            },
+            {
+                "url": "assets/sprites/ui/kleebyboy.png",
+                "type": "image",
+                "key": "kleebyboy"
+            },
+            {
+                "url": [
+                    "assets/sfx/land.wav"
+                ],
+                "type": "audio",
+                "key": "land"
+            },
+            {
+                "url": [
+                    "assets/sfx/main-music.ogg"
+                ],
+                "type": "audio",
+                "key": "main-music"
+            },
+            {
+                "url": "assets/sprites/bg/mountain-bg.png",
+                "type": "image",
+                "key": "mountain-bg"
+            },
+            {
+                "url": "assets/sprites/bg/overpass.png",
+                "type": "image",
+                "key": "overpass"
+            },
+            {
+                "url": "assets/sprites/bg/overpass-pillar.png",
+                "type": "image",
+                "key": "overpass-pillar"
+            },
+            {
+                "textureURL": "assets/fonts/pixel.png",
+                "fontDataURL": "assets/fonts/pixel.xml",
+                "type": "bitmapFont",
+                "key": "pixel"
+            },
+            {
+                "url": "assets/sprites/ui/PremierTendo.png",
+                "type": "image",
+                "key": "PremierTendo"
+            },
+            {
+                "url": "assets/sprites/bg/road.png",
+                "type": "image",
+                "key": "road"
+            },
+            {
+                "url": "assets/sprites/etc/rootbeer.png",
+                "type": "image",
+                "key": "rootbeer"
+            },
+            {
+                "url": "assets/sprites/etc/rootbeer-small.png",
+                "type": "image",
+                "key": "rootbeer-small"
+            },
+            {
+                "url": [
+                    "assets/sfx/sfxAfterBurner.wav"
+                ],
+                "type": "audio",
+                "key": "sfxAfterBurner"
+            },
+            {
+                "url": [
+                    "assets/sfx/sfxCoin.wav"
+                ],
+                "type": "audio",
+                "key": "sfxCoin"
+            },
+            {
+                "url": [
+                    "assets/sfx/sfxStart.wav"
+                ],
+                "type": "audio",
+                "key": "sfxStart"
+            },
+            {
+                "url": "assets/sprites/bg/sidewalk.png",
+                "type": "image",
+                "key": "sidewalk"
+            },
+            {
+                "url": "assets/sprites/ui/title.png",
+                "type": "image",
+                "key": "title"
+            },
+            {
+                "url": "assets/sprites/player/van-idle.png",
+                "frameConfig": {
+                    "frameWidth": 80,
+                    "frameHeight": 98,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "van-idle"
+            },
+            {
+                "url": "assets/sprites/bg/warp.png",
+                "type": "image",
+                "key": "warp"
+            },
+            {
+                "url": "assets/sprites/ui/windowPanel.png",
+                "type": "image",
+                "key": "windowPanel"
+            }
+        ]
+    },
+    "meta": {
+        "app": "Phaser Editor 2D - Asset Pack Editor",
+        "contentType": "phasereditor2d.pack.core.AssetContentType",
+        "url": "https://phasereditor2d.com",
+        "version": 2,
+        "showAllFilesInBlocks": false
+    }
+}

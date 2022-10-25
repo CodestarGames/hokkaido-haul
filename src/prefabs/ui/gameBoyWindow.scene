@@ -1,0 +1,59 @@
+{
+    "id": "a802539e-be07-4bbf-ba13-f28223a3307a",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1024,
+        "borderHeight": 768
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "6ac3875c-5f10-45ae-b0f7-bc366dea507f",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "29379c6a-e21f-4297-80b8-7ff55b54d579",
+                    "label": "kleebyboy",
+                    "components": [],
+                    "texture": {
+                        "key": "kleebyboy"
+                    },
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "ea48eaa7-929f-4a06-bfbb-2d5f27613c9e",
+                    "id": "c70ecf1d-50b6-4c5e-b845-be6d8f6e2720",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "width",
+                        "height"
+                    ],
+                    "label": "playAreaZone",
+                    "scope": "NESTED_PREFAB",
+                    "components": [],
+                    "x": 80,
+                    "y": 48,
+                    "width": 480,
+                    "height": 416
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

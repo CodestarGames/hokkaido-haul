@@ -1,0 +1,41 @@
+{
+    "id": "8d4bb6e6-3e5a-4d57-b61d-c6f940e4194b",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "EnemyBase",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 480
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "551b672d-69a5-4dd2-b071-f9a4f0bd395e",
+            "label": "playerPrefab",
+            "scope": "CLASS",
+            "components": [
+                "CompKeyboardMovement"
+            ],
+            "texture": {
+                "key": "bear"
+            },
+            "originY": 1,
+            "tintTopLeft": "",
+            "tintTopRight": "",
+            "tintBottomLeft": "",
+            "tintBottomRight": ""
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

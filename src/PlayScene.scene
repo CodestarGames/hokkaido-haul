@@ -1,0 +1,159 @@
+{
+    "id": "35fc5de1-76d4-4d4a-b9c6-243ec865cbe5",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseStageScene",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "PlayScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1024,
+        "borderHeight": 416
+    },
+    "displayList": [
+        {
+            "type": "TileSprite",
+            "id": "93f3075d-8c2c-45df-b6d5-4cd9939e9c94",
+            "label": "mountain_bg",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "mountain-bg"
+            },
+            "originX": 0,
+            "originY": 0,
+            "width": 480,
+            "height": 416
+        },
+        {
+            "type": "Layer",
+            "id": "8c2b0620-9b0b-47c8-87ec-03e2d7301f2f",
+            "label": "bg_houses_layer",
+            "scope": "PUBLIC",
+            "components": [],
+            "list": []
+        },
+        {
+            "type": "Layer",
+            "id": "1e3d6113-ca88-41ad-8ba2-265786ca6b58",
+            "label": "level_layer",
+            "scope": "PUBLIC",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "67515612-5dc8-4367-94ac-a199c59fc017",
+                    "id": "3825b8a8-baab-4285-aa57-e8eaf7abbe58",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "parentLayer"
+                    ],
+                    "label": "levelTemplateInst",
+                    "scope": "PUBLIC",
+                    "parentLayer": "level_layer",
+                    "components": [],
+                    "x": -128,
+                    "y": 0,
+                    "nestedPrefabs": []
+                }
+            ]
+        },
+        {
+            "prefabId": "21b45361-9d26-467b-94e0-e30ebc40afbb",
+            "id": "d97b4707-d1e5-4a14-8efe-3cad19d7676b",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "hero",
+            "components": [],
+            "x": -56,
+            "y": 386
+        },
+        {
+            "type": "Layer",
+            "id": "16ad5091-9629-44e7-b0b3-a7161107b61c",
+            "label": "speed_effect_layer",
+            "scope": "PUBLIC",
+            "components": [],
+            "visible": false,
+            "list": [
+                {
+                    "type": "TileSprite",
+                    "id": "10fe05c2-c0c2-4495-83ad-3cffba4f8210",
+                    "label": "warpTileSprite",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "warp"
+                    },
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 480,
+                    "height": 416
+                }
+            ]
+        },
+        {
+            "type": "Sprite",
+            "id": "6b3fac42-8e2d-41d1-99ee-9d207fdf86a6",
+            "label": "bikes",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "bikes",
+                "frame": 0
+            },
+            "x": 248,
+            "y": 360
+        },
+        {
+            "type": "Layer",
+            "id": "9be3c19d-ef2c-4aa5-a667-56fa74643143",
+            "label": "hud_layer",
+            "scope": "PUBLIC",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "51778bea-2539-4c97-90a5-514b7a9bf4f7",
+                    "id": "637bfa75-95b3-4268-8785-09e19c7bd6d8",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "HUDPanelPrefabInst",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 0,
+                    "y": 0,
+                    "nestedPrefabs": []
+                },
+                {
+                    "prefabId": "908e4618-f1af-46a1-b2ad-bd46fd5d8d3a",
+                    "id": "ada048e5-b535-438b-a53a-122cb6be9812",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "dialogBox",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 0,
+                    "y": 0,
+                    "visible": false,
+                    "nestedPrefabs": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}
