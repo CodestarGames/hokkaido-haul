@@ -27,7 +27,6 @@ export default class overpassPrefab extends Phaser.GameObjects.TileSprite {
 
 	// Write your code here.
 	awake() {
-		debugger
 		let overpassPillar1 = new overpassColumnPrefab(this.scene, this.getBottomLeft().x, this.getBottomLeft().y)
 		let overpassPillar2 = new overpassColumnPrefab(this.scene, this.getBottomCenter().x- 8, this.getBottomCenter().y)
 		let overpassPillar3 = new overpassColumnPrefab(this.scene, this.getBottomRight().x - 16, this.getBottomRight().y)

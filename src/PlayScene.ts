@@ -23,6 +23,7 @@ import LevelTemplate_0_3Prefab from "./prefabs/levelTemplates/LevelTemplate_0_3P
 import LevelTemplate_0_7Prefab from "./prefabs/levelTemplates/LevelTemplate_0_7Prefab";
 import LevelTemplate_0_6Prefab from "./prefabs/levelTemplates/LevelTemplate_0_6Prefab";
 import LevelTemplate_0_8Prefab from "./prefabs/levelTemplates/LevelTemplate_0_8Prefab";
+import LevelTemplate_0_9Prefab from "./prefabs/levelTemplates/LevelTemplate_0_9Prefab";
 /* END-USER-IMPORTS */
 
 export default class PlayScene extends BaseStageScene {
@@ -52,7 +53,7 @@ export default class PlayScene extends BaseStageScene {
 		level_layer.add(levelTemplateInst);
 
 		// hero
-		const hero = new Hero(this, -56, 386);
+		const hero = new Hero(this, 96, 302);
 		this.add.existing(hero);
 
 		// speed_effect_layer
@@ -64,8 +65,8 @@ export default class PlayScene extends BaseStageScene {
 		warpTileSprite.setOrigin(0, 0);
 		speed_effect_layer.add(warpTileSprite);
 
-		// bikes
-		const bikes = this.add.sprite(248, 360, "bikes", 0);
+		// bikesChris
+		const bikesChris = this.add.sprite(248, 361, "bikes", 0);
 
 		// hud_layer
 		const hud_layer = this.add.layer();
@@ -79,6 +80,9 @@ export default class PlayScene extends BaseStageScene {
 		dialogBox.visible = false;
 		hud_layer.add(dialogBox);
 
+		// bikesConnor
+		const bikesConnor = this.add.sprite(312, 361, "bikes", 4);
+
 		// levelTemplateInst (prefab fields)
 		levelTemplateInst.parentLayer = level_layer;
 
@@ -88,10 +92,11 @@ export default class PlayScene extends BaseStageScene {
 		this.levelTemplateInst = levelTemplateInst;
 		this.speed_effect_layer = speed_effect_layer;
 		this.warpTileSprite = warpTileSprite;
-		this.bikes = bikes;
+		this.bikesChris = bikesChris;
 		this.hud_layer = hud_layer;
 		this.hUDPanelPrefabInst = hUDPanelPrefabInst;
 		this.dialogBox = dialogBox;
+		this.bikesConnor = bikesConnor;
 
 		this.events.emit("scene-awake");
 	}
@@ -102,10 +107,11 @@ export default class PlayScene extends BaseStageScene {
 	public levelTemplateInst!: LevelTemplateFlatLoopPrefab;
 	public speed_effect_layer!: Phaser.GameObjects.Layer;
 	public warpTileSprite!: Phaser.GameObjects.TileSprite;
-	public bikes!: Phaser.GameObjects.Sprite;
+	public bikesChris!: Phaser.GameObjects.Sprite;
 	public hud_layer!: Phaser.GameObjects.Layer;
 	public hUDPanelPrefabInst!: HUDPanelPrefab;
 	public dialogBox!: DialogPanelPrefab;
+	public bikesConnor!: Phaser.GameObjects.Sprite;
 
 	/* START-USER-CODE */
 	tile_layer_1: Phaser.Tilemaps.TilemapLayer;
@@ -121,7 +127,7 @@ export default class PlayScene extends BaseStageScene {
 	create(props) {
 		super.create(props);
 
-		this.sound.play('main-music', {loop: true, volume: 0.25});
+		this.sound.play('main-music', {loop: true, volume: 0.2});
 
 		let game = (this.game as GameExtended);
 		let playSceneBlackboard = {
@@ -152,8 +158,13 @@ export default class PlayScene extends BaseStageScene {
 			this.bg_houses_layer.add(child);
 		})
 
-		this.bikes.play('anim-bikes', true)
+		this.bikesChris.play('anim-bikes-chris', true)
+		this.bikesConnor.play('anim-bikes-connor', true)
 
+	}
+
+	get bikes() {
+		return [this.bikesChris, this.bikesConnor]
 	}
 
 	moveLevel() {
@@ -187,7 +198,7 @@ export default class PlayScene extends BaseStageScene {
 			});
 
 
-			Phaser.Actions.IncX(this.enemyCollisionGroup.getChildren(), -this.gameManager.gameSpeed);
+			//Phaser.Actions.IncX(this.enemyCollisionGroup.getChildren(), -this.gameManager.gameSpeed);
 			this.enemyCollisionGroup.getChildren().forEach((obstacle: any) => {
 				if (obstacle.getBounds().right < 0) {
 					this.enemyCollisionGroup.killAndHide(obstacle);
@@ -219,6 +230,7 @@ export default class PlayScene extends BaseStageScene {
 					() => new LevelTemplate_0_6Prefab(this, 476, 0),
 					() => new LevelTemplate_0_7Prefab(this, 476, 0),
 					() => new LevelTemplate_0_8Prefab(this, 476, 0),
+					() => new LevelTemplate_0_9Prefab(this, 476, 0),
 				])();
 				this.level_layer.add(levelTemplateInst);
 				levelTemplateInst.parentLayer = this.level_layer;

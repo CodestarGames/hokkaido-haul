@@ -67,19 +67,6 @@
             "tilePositionX": 16
         },
         {
-            "type": "Sprite",
-            "id": "25932c86-377a-4f88-806f-91d5368969a1",
-            "label": "bikes",
-            "scope": "PUBLIC",
-            "components": [],
-            "texture": {
-                "key": "bikes",
-                "frame": 0
-            },
-            "x": 245,
-            "y": 360
-        },
-        {
             "type": "Image",
             "id": "961fed9c-8954-4cb4-81ff-3e92b7250948",
             "label": "title",
@@ -124,6 +111,32 @@
             "fontSize": 6,
             "maxWidth": 358,
             "dropShadowAlpha": 1
+        },
+        {
+            "type": "Sprite",
+            "id": "379e285b-970d-4105-94cd-1798276f7145",
+            "label": "bikesChris",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "bikes",
+                "frame": 0
+            },
+            "x": 243,
+            "y": 359
+        },
+        {
+            "type": "Sprite",
+            "id": "fd789036-d6a3-4205-84d1-5dd379b9fc3d",
+            "label": "bikesConnor",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "bikes",
+                "frame": 4
+            },
+            "x": 307,
+            "y": 359
         }
     ],
     "plainObjects": [],

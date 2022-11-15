@@ -12,9 +12,11 @@ import {Action} from "../../common/Actions/Action";
 import Actor from "../../common/Actors/Actor";
 import {Hit} from "../../common/Combat";
 import List = Phaser.Structs.List;
+import {MoveHorizontalAction} from "../../common/Actions/MoveHorizontalAction";
 /* END-USER-IMPORTS */
 
 export default class enemyDrone extends EnemyBase {
+
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "drone", frame ?? 0);
@@ -31,13 +33,13 @@ export default class enemyDrone extends EnemyBase {
 		this.hitStun = false;
 		this.launchable = true;
 
-		this.setInteractive();
 		/* END-USER-CTR-CODE */
 	}
 
 	/* START-USER-CODE */
 	losRay: any;
 	animStateMachine: StateMachine;
+	damagable = false;
 
 	// Write your code here.
 	boppable = false;
@@ -64,7 +66,7 @@ export default class enemyDrone extends EnemyBase {
 
 	onGetAction(): Action {
 		this.animStateMachine?.update();
-		return undefined;
+		return new MoveHorizontalAction(Phaser.LEFT, this.game.gameManager.gameSpeed)
 	}
 
 

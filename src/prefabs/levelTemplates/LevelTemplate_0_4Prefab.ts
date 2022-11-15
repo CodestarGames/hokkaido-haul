@@ -7,6 +7,7 @@ import LevelTemplatePrefabBase from "./LevelTemplatePrefabBase";
 import overpassPrefab from "./overpassPrefab";
 import enemyPrefab from "../actors/enemyPrefab";
 import enemyDrone from "../actors/enemyDrone";
+import enemyPrefabCar from "../actors/enemyPrefabCar";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -42,10 +43,6 @@ export default class LevelTemplate_0_4Prefab extends LevelTemplatePrefabBase {
 		const roadTileSprite_4 = new overpassPrefab(scene, 721, 254);
 		this.add(roadTileSprite_4);
 
-		// enemyPrefab1
-		const enemyPrefab1 = new enemyPrefab(scene, 567, 380);
-		this.add(enemyPrefab1);
-
 		// enemyPrefab_1
 		const enemyPrefab_1 = new enemyPrefab(scene, 814, 249, "bear");
 		this.add(enemyPrefab_1);
@@ -61,6 +58,10 @@ export default class LevelTemplate_0_4Prefab extends LevelTemplatePrefabBase {
 		// enemyDroneInst_3
 		const enemyDroneInst_3 = new enemyDrone(scene, 763, 313);
 		this.add(enemyDroneInst_3);
+
+		// enemyPrefabCar2
+		const enemyPrefabCar2 = new enemyPrefabCar(scene, 563, 388);
+		this.add(enemyPrefabCar2);
 
 		this.roadTileSprite = roadTileSprite;
 		this.roadTileSprite_1 = roadTileSprite_1;

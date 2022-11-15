@@ -26,7 +26,12 @@ export class _JumpAction extends Mixin(GeneratorActionMixin, Action) {
 
             if(body.onCeiling()) {
                 body.setVelocityY(10);
-                this.hero.animStateMachine.setState('fall');
+
+                if(this.hero.animStateMachine?.currentState.name.indexOf('pete') > -1)
+                    this.hero.animStateMachine.setState('pete-fall');
+                else
+                    this.hero.animStateMachine.setState('fall');
+
                 break;
             }
 

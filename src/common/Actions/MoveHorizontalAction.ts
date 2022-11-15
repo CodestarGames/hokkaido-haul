@@ -1,18 +1,21 @@
 import {Action, ActionResult} from "./Action";
+import {GAME_SCENE_STATE} from "../GameManagerSingleton";
 
 export class MoveHorizontalAction extends Action {
-    constructor(readonly dir: number, readonly velocity: number) {
+    constructor(readonly dir: number, readonly num: number) {
         super();
     }
 
     onPerform(): ActionResult {
-        let body = this.actor.body as Phaser.Physics.Arcade.Body;
+        if(this.game.gameManager.currentGameState !== GAME_SCENE_STATE.GAME_SCROLL)
+            return this.fail();
+
         switch (this.dir) {
             case Phaser.LEFT:
-                body.setVelocityX(-this.velocity);
+                Phaser.Actions.IncX([this.actor], -this.num);
                 break;
             case Phaser.RIGHT:
-                body.setVelocityX(this.velocity);
+                Phaser.Actions.IncX([this.actor], this.num);
                 break;
         }
 

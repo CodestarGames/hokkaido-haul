@@ -12,6 +12,7 @@ import baseStageScene from "../../common/BaseStageScene";
 import Actor from "../../common/Actors/Actor";
 import {Hit} from "../../common/Combat";
 import List = Phaser.Structs.List;
+import {MoveHorizontalAction} from "../../common/Actions/MoveHorizontalAction";
 /* END-USER-IMPORTS */
 
 export default class enemyPrefab extends EnemyBase {
@@ -31,7 +32,6 @@ export default class enemyPrefab extends EnemyBase {
 		this.hitStun = false;
 		this.launchable = true;
 
-		this.setInteractive();
 		/* END-USER-CTR-CODE */
 	}
 
@@ -39,7 +39,7 @@ export default class enemyPrefab extends EnemyBase {
 	losRay: any;
 	animStateMachine: StateMachine;
 	boppable = true;
-
+	damagable = true;
 	// Write your code here.
 
 	registerEnemyGroup() {
@@ -61,7 +61,7 @@ export default class enemyPrefab extends EnemyBase {
 
 	onGetAction(): Action {
 		this.animStateMachine?.update();
-		return undefined;
+		return new MoveHorizontalAction(Phaser.LEFT, this.game.gameManager.gameSpeed)
 	}
 
 
@@ -79,6 +79,8 @@ export default class enemyPrefab extends EnemyBase {
 	}
 
 	takeDamage(action: Action, damage: number, attacker: Actor): boolean {
+
+
 		if(!this.active)
 			return false;
 
@@ -95,6 +97,7 @@ export default class enemyPrefab extends EnemyBase {
 
 	onDied() {
 		super.onDied();
+		(this.scene as baseStageScene).enemyCollisionGroup.remove(this, false);
 		this.flipY = true;
 
 	}

@@ -41,6 +41,9 @@ export default abstract class Actor extends Phaser.GameObjects.Sprite {
     public name: string;
 
     public getAction () : Action {
+        if(!this.active)
+            return null;
+
         const action = this.onGetAction();
         if (action != null) action.bind(this);
         return action;

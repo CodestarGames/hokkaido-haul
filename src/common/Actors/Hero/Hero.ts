@@ -46,9 +46,13 @@ export default class Hero extends Actor {
 			this.scene.physics.add.existing(this);
 			let body = this.body as Phaser.Physics.Arcade.Body;
 			body.setCollideWorldBounds(false);
+			body.setAllowGravity(false);
 
 			setTimeout(() => {
-				this.play(this.getFormattedAnimName('idle'), false);
+				if(this.animStateMachine?.currentState.name.indexOf('pete') > -1)
+					this.play('anim-pete-run', false);
+				else
+					this.play(this.getFormattedAnimName('idle'), false);
 			}, 4000);
 			//
 			//  this.scene.cameras.main.setBounds(0, 0, 2400, 320);
@@ -123,7 +127,11 @@ export default class Hero extends Actor {
 	}
 
 	jump() {
-		this.animStateMachine.setState('jump');
+		if(this.animStateMachine?.currentState.name.indexOf('pete') > -1)
+			this.animStateMachine.setState('pete-jump');
+		else
+			this.animStateMachine.setState('jump');
+
 		this._behavior = new JumpBehavior();
 	}
 

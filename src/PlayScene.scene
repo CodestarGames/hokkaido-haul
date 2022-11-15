@@ -56,7 +56,8 @@
                     "components": [],
                     "x": -128,
                     "y": 0,
-                    "nestedPrefabs": []
+                    "nestedPrefabs": [],
+                    "list": []
                 }
             ]
         },
@@ -69,8 +70,8 @@
             ],
             "label": "hero",
             "components": [],
-            "x": -56,
-            "y": 386
+            "x": 96,
+            "y": 302
         },
         {
             "type": "Layer",
@@ -99,7 +100,7 @@
         {
             "type": "Sprite",
             "id": "6b3fac42-8e2d-41d1-99ee-9d207fdf86a6",
-            "label": "bikes",
+            "label": "bikesChris",
             "scope": "PUBLIC",
             "components": [],
             "texture": {
@@ -107,7 +108,7 @@
                 "frame": 0
             },
             "x": 248,
-            "y": 360
+            "y": 361
         },
         {
             "type": "Layer",
@@ -128,7 +129,8 @@
                     "components": [],
                     "x": 0,
                     "y": 0,
-                    "nestedPrefabs": []
+                    "nestedPrefabs": [],
+                    "list": []
                 },
                 {
                     "prefabId": "908e4618-f1af-46a1-b2ad-bd46fd5d8d3a",
@@ -144,9 +146,23 @@
                     "x": 0,
                     "y": 0,
                     "visible": false,
-                    "nestedPrefabs": []
+                    "nestedPrefabs": [],
+                    "list": []
                 }
             ]
+        },
+        {
+            "type": "Sprite",
+            "id": "cde2daaa-a768-4121-9a16-ff2aeb9dbb78",
+            "label": "bikesConnor",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "bikes",
+                "frame": 4
+            },
+            "x": 312,
+            "y": 361
         }
     ],
     "plainObjects": [],

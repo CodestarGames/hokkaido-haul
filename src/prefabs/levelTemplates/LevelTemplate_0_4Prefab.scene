@@ -95,18 +95,6 @@
                 },
                 {
                     "prefabId": "8d4bb6e6-3e5a-4d57-b61d-c6f940e4194b",
-                    "id": "60b92568-7c17-452c-9dca-aaae4ba2bc0e",
-                    "unlock": [
-                        "x",
-                        "y"
-                    ],
-                    "label": "enemyPrefab1",
-                    "components": [],
-                    "x": 567,
-                    "y": 380
-                },
-                {
-                    "prefabId": "8d4bb6e6-3e5a-4d57-b61d-c6f940e4194b",
                     "id": "882cec8c-ac4f-44fb-8271-53a34ea3aae0",
                     "unlock": [
                         "x",
@@ -164,6 +152,18 @@
                     "components": [],
                     "x": 763,
                     "y": 313
+                },
+                {
+                    "prefabId": "0c04277d-e39a-4193-ae95-a1864c7c63a5",
+                    "id": "e67753f8-1287-4e03-beb3-516aefebaa87",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "enemyPrefabCar2",
+                    "components": [],
+                    "x": 563,
+                    "y": 388
                 }
             ]
         }

@@ -37,7 +37,7 @@
 //         while(this.actorBody.onFloor() === false) {
 //
 //             //if we've traveling downwards.
-//             if(this.actorBody.velocity.y > 0) {
+//             if(this.actorBody.num.y > 0) {
 //
 //                 let hitTarget = this.getHitScanRaycastTargets(this.overlapChildren);
 //
@@ -85,7 +85,7 @@
 //         let heroBody = hero.body as Phaser.Physics.Arcade.Body;
 //
 //         //if we're not on the floor, ceiling, and we're in the air. We can ground pound.
-//         return !hero.animStateMachine.isCurrentState('head-bounce') && heroBody.onFloor() === false && heroBody.onCeiling() === false && heroBody.velocity.y !== 0;
+//         return !hero.animStateMachine.isCurrentState('head-bounce') && heroBody.onFloor() === false && heroBody.onCeiling() === false && heroBody.num.y !== 0;
 //     }
 //
 //     getAction(hero: Actor): Action {

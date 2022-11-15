@@ -37,6 +37,9 @@ interface IState
 let idCount = 0
 
 export class StateMachine {
+    get currentState(): IState {
+        return this._currentState;
+    }
     uid = (++idCount).toString()
     get key() {
         return this.uid;
@@ -45,7 +48,7 @@ export class StateMachine {
     _children = new Map<string, IState>()
     children:any;
     private previousState?: IState
-    private currentState?: IState
+    private _currentState?: IState
     private isChangingState = false
     private changeStateQueue: string[] = []
 
@@ -67,12 +70,12 @@ export class StateMachine {
 
     isCurrentState(name: string)
     {
-        if (!this.currentState)
+        if (!this._currentState)
         {
             return false
         }
 
-        return this.currentState.name === name
+        return this._currentState.name === name
     }
 
     addState(name: string, config?: { onEnter?: () => void, update?: (dt: number) => void, onExit?: () => void })
@@ -110,19 +113,19 @@ export class StateMachine {
 
         this.isChangingState = true
 
-        console.log(`[StateMachine (${this.uid})] change from ${this.currentState?.name ?? 'none'} to ${name}`)
+        console.log(`[StateMachine (${this.uid})] change from ${this._currentState?.name ?? 'none'} to ${name}`)
 
-        if (this.currentState && this.currentState.onExit)
+        if (this._currentState && this._currentState.onExit)
         {
-            this.currentState.onExit()
+            this._currentState.onExit()
         }
 
-        this.previousState = this.currentState
-        this.currentState = this._children.get(name)!
+        this.previousState = this._currentState
+        this._currentState = this._children.get(name)!
 
-        if (this.currentState.onEnter)
+        if (this._currentState.onEnter)
         {
-            this.currentState.onEnter()
+            this._currentState.onEnter()
         }
 
         this.isChangingState = false
@@ -135,9 +138,9 @@ export class StateMachine {
             return undefined;
         }
 
-        if (this.currentState && this.currentState.update)
+        if (this._currentState && this._currentState.update)
         {
-            return this.currentState.update()
+            return this._currentState.update()
         }
 
         return undefined

@@ -20,6 +20,7 @@ export default abstract class EnemyBase extends Actor {
     }
 
     abstract boppable: boolean
+    abstract damagable: boolean
 
     registerEnemyGroup() {
         //this.setActive(false);
@@ -39,7 +40,7 @@ export default abstract class EnemyBase extends Actor {
 
     onDied() {
         super.onDied();
-        (this.scene as baseStageScene).enemyCollisionGroup.remove(this, false);
+
     }
 
 

@@ -4,13 +4,12 @@
 /* START OF COMPILED CODE */
 
 import SceneExtended from "../common/SceneExtended";
-import {fadeBetweenScenes} from "../common/utils";
-import {GameRouter} from "../common/GameRouter";
 /* START-USER-IMPORTS */
+import {GameRouter} from "../common/GameRouter";
+import {fadeBetweenScenes} from "../common/utils";
 /* END-USER-IMPORTS */
 
 export default class OpeningCredits extends SceneExtended {
-
 
 	constructor() {
 		super("OpeningCreditsScene");

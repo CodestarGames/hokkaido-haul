@@ -78,11 +78,10 @@ export default function PlaySceneBtree(props) {
     function HandleInstDeathSequence(props) {
         return (
             <Sequence {...props} cond={() => hero.y > 416 && !hero.animStateMachine.isCurrentState('died')}>
+                <ActionDisableControls />
                 <FunctionCall fn={() => { game.gameManager.stopGameScroll(); }}/>
                 <ActionPlaySound sndKey={'death-fall'} waitTilDone={true} sndConf={{ volume: 0.2 }} />
-                <FunctionCall fn={() => {
-                    hero.animStateMachine.setState('died');
-                }}/>
+                <FunctionCall fn={() => { hero.animStateMachine.setState('died'); }}/>
             </Sequence>
         )
     }
@@ -91,7 +90,11 @@ export default function PlaySceneBtree(props) {
         return (
             <Selector {...props} >
                 <HandleCutSceneSetup
-                    cond={() => game.gameManager.distance > 1 && Math.ceil(game.gameManager.distance) % 50 === 0 && Math.ceil(game.gameManager.distance) !== 750}
+                    cond={
+                        () => game.gameManager.distance > 1
+                        && Math.floor(game.gameManager.distance) % 50 === 0
+                        && Math.ceil(game.gameManager.distance) < 710
+                    }
                 />
             </Selector>
 
@@ -151,11 +154,11 @@ export default function PlaySceneBtree(props) {
                 </Selector>
                 <ActionCloseDialog />
                 <ActionTween waitForCompletion={true} tweenConfig={() => ({
-                    targets: [scene.bikes],
-                    x: 560,
+                    targets: scene.bikes,
+                    x: "+=360",
                     duration: 1500
                 })} />
-                <FunctionCall fn={() => {game.gameManager.distance += 1} }/>
+
             </Sequence>
         );
     }
@@ -187,14 +190,14 @@ export default function PlaySceneBtree(props) {
     function HandleCutSceneSetup(props) {
         return (
             <Sequence {...props}>
+                <FunctionCall fn={() => {game.gameManager.distance += 1} }/>
                 <ActionDisableControls />
-
                 <Sequence step={() => { scene.warpTileSprite.tilePositionX += 32; }}>
                     <FunctionCall fn={() => {
                         scene.sound.play('sfxAfterBurner', {volume: 0.2});
                         hero.angle = 0;
                         scene.speed_effect_layer.visible = true;
-                        getHeroBody().setAllowGravity(false);
+                        //getHeroBody().setAllowGravity(false);
                         scene.physics.world.disableBody(getHeroBody());
                         resetSceneTemplatesToLoop()
                     }}/>
@@ -202,7 +205,7 @@ export default function PlaySceneBtree(props) {
                     <ActionTween waitForCompletion={true} tweenConfig={() => ({
                         targets: [hero],
                         x: 96,
-                        y: 382,
+                        y: 376,
                         duration: 1000
                     })} />
                     <Wait duration={3000} />
@@ -210,14 +213,14 @@ export default function PlaySceneBtree(props) {
                 <FunctionCall fn={() => {
                     scene.speed_effect_layer.visible = false;
                     scene.physics.world.enableBody(hero);
-                    getHeroBody().setAllowGravity(true);
+                    //getHeroBody().setAllowGravity(true);
                 }}/>
 
                 <Parallel>
                     <ActionPeterSpeak text={'Hey guys!'} />
                     <ActionTween waitForCompletion={true} tweenConfig={() => ({
-                        targets: [scene.bikes],
-                        x: 248,
+                        targets: scene.bikes,
+                        x: "-=360",
                         duration: 2000
                     })} />
                 </Parallel>
@@ -225,23 +228,21 @@ export default function PlaySceneBtree(props) {
 
                 {/* do level specific cutscenes here */}
                 <HandleCheerFromEnergy />
-                <ActionEnableControls exit={() => {
-                    game.gameManager.setTemplateGenType(TEMPLATE_GEN_TYPE.RANDOM_0);
-                }}/>
+                <ActionEnableControls exit={() => { game.gameManager.setTemplateGenType(TEMPLATE_GEN_TYPE.RANDOM_0); }}/>
             </Sequence>
         );
     }
 
-    function HandleGameCompleteSequence(props) {
+    function HandleMouseIntroSequence(props) {
         return (
-            <Sequence {...props} cond={() => game.gameManager.distance >= 750 }>
+            <Sequence {...props} cond={() => game.gameManager.distance >= 749.9 }>
                 <ActionDisableControls />
                 <Sequence step={() => { scene.warpTileSprite.tilePositionX += 32; }}>
                     <FunctionCall fn={() => {
                         scene.sound.play('sfxAfterBurner', {volume: 0.2});
                         hero.angle = 0;
                         scene.speed_effect_layer.visible = true;
-                        getHeroBody().setAllowGravity(false);
+                        //getHeroBody().setAllowGravity(false);
                         scene.physics.world.disableBody(getHeroBody());
                         resetSceneTemplatesToLoop()
                     }}/>
@@ -249,21 +250,46 @@ export default function PlaySceneBtree(props) {
                     <ActionTween waitForCompletion={true} tweenConfig={() => ({
                         targets: [hero],
                         x: 96,
-                        y: 382,
+                        y: 376,
                         duration: 1000
                     })} />
-                    <ActionPeterSpeak text={"We did it boys!"} />
-                    <ActionTween waitForCompletion={true} tweenConfig={() => ({
-                        targets: [scene.bikes],
-                        x: 248,
-                        duration: 1000
-                    })} />
-                    <Wait duration={4000} />
-                    <FunctionCall fn={() => {
-                        fadeBetweenScenes(game, GameRouter.PlayScene.key, GameRouter.GameCompleteScene.key);
-                        scene.BTreeManager.removeTree(scene.BTree);
-                    }}/>
+                    <Wait duration={3000} />
                 </Sequence>
+                <FunctionCall fn={() => {
+                    scene.speed_effect_layer.visible = false;
+                    scene.physics.world.enableBody(hero);
+                    //getHeroBody().setAllowGravity(true);
+                }}/>
+                <Parallel>
+                    <ActionPeterSpeak text={`We're almost there boys!`} />
+                    <ActionTween waitForCompletion={true} tweenConfig={() => ({
+                        targets: scene.bikes,
+                        x: "-=360",
+                        duration: 2000
+                    })} />
+                </Parallel>
+
+                <ActionChrisSpeak text={`ACK! My back!`}/>
+                <ActionTween waitForCompletion={true} tweenConfig={() => ({
+                    targets: scene.bikesChris,
+                    x: "-=480",
+                    duration: 2000
+                })} />
+                <ActionConnorSpeak text={`Hey! Get back here! We have to finish this together!`} />
+                <ActionQuestionSpeak text={`THERE YOU ARE!`} />
+                <Wait duration={3000} />
+                <ActionMouseSpeak text={`I've been looking everywhere for you Monke! We've got a stream to do!`}/>
+                <ActionConnorSpeak text={`I'm kinda of busy mouse, can't it wait?`} />
+                <ActionMouseSpeak text={`No! We're already late! Now come on! We've got no time to argue!`}/>
+                <Wait duration={3000} />
+                <ActionPeterSpeak text={`Hey! We need him to finish the Cycle!`} />
+                <ActionMouseKekSpeak text={'Can it premier dork!'}/>
+                <Wait duration={3000} />
+                <ActionMouseSpeak text={`Ahahahahaha!`}/>
+                <ActionCloseDialog />
+                <ActionEnableControls exit={() => {
+                    game.gameManager.setTemplateGenType(TEMPLATE_GEN_TYPE.RANDOM_0);
+                }}/>
             </Sequence>
         )
     }
@@ -272,6 +298,7 @@ export default function PlaySceneBtree(props) {
         return (
             <Sequence {...props} cond={() => hero.animStateMachine.isCurrentState('died')}>
                 <FunctionCall fn={() => {
+                    scene.controls.start();
                     fadeBetweenScenes(game, GameRouter.PlayScene.key, GameRouter.GameOverScene.key);
                     scene.BTreeManager.removeTree(scene.BTree);
                 }}/>
@@ -326,7 +353,11 @@ export default function PlaySceneBtree(props) {
 
     function ActionDisableControls(props){
         return wrapActionNode('ActionDisableControls', (node: any) => {
-            hero.animStateMachine?.setState('idle');
+            if(hero.animStateMachine?.currentState.name.indexOf('pete') > -1)
+                hero.animStateMachine?.setState('pete-idle');
+            else
+                hero.animStateMachine?.setState('idle');
+
             scene.controls.stop();
 
             return true;
@@ -387,6 +418,36 @@ export default function PlaySceneBtree(props) {
         }, props)
     }
 
+    function ActionQuestionSpeak(props: {text: string }) {
+        return wrapActionNode('ActionQuestionSpeak', async (node: any) => {
+            if(!scene.dialogBox.visible)
+                scene.dialogBox.setVisible(true);
+            scene.dialogBox.avatarImg.setTexture('avatars', 6);
+            await scene.dialogBox.typewriteBitmapText(props.text);
+            return NodeState.SUCCEEDED;
+        }, props)
+    }
+
+    function ActionMouseSpeak(props: {text: string }) {
+        return wrapActionNode('ActionMouseSpeak', async (node: any) => {
+            if(!scene.dialogBox.visible)
+                scene.dialogBox.setVisible(true);
+            scene.dialogBox.avatarImg.setTexture('avatars', 5);
+            await scene.dialogBox.typewriteBitmapText(props.text);
+            return NodeState.SUCCEEDED;
+        }, props)
+    }
+
+    function ActionMouseKekSpeak(props: {text: string }) {
+        return wrapActionNode('ActionMouseKekSpeak', async (node: any) => {
+            if(!scene.dialogBox.visible)
+                scene.dialogBox.setVisible(true);
+            scene.dialogBox.avatarImg.setTexture('avatars', 4);
+            await scene.dialogBox.typewriteBitmapText(props.text);
+            return NodeState.SUCCEEDED;
+        }, props)
+    }
+
     function IntroSequence(props) {
         return (
             <Sequence {...props}>
@@ -399,13 +460,14 @@ export default function PlaySceneBtree(props) {
                 <FunctionCall fn={() => {
                     let body = hero.body as Phaser.Physics.Arcade.Body;
                     body.setCollideWorldBounds(true);
+                    body.setAllowGravity(true);
                 }} />
                 <ActionPeterSpeak text={`Let's GO!!!!!!!!!!!`}  />
                 {/*<Wait duration={1500} />*/}
                 {/*<ActionChrisSpeak text={`Let's GO!!!!!!!!!!!`}  />*/}
                 {/*<Wait duration={1500} />*/}
                 {/*<ActionConnorSpeak text={`Let's GO!!!!!!!!!!!`}  />*/}
-                <Wait duration={3000} step={() => { Phaser.Actions.IncX([scene.bikes], 2) }} />
+                <Wait duration={3000} step={() => { Phaser.Actions.IncX(scene.bikes, 2) }} />
                 <ActionCloseDialog />
                 <ActionEnableControls exit={(bb) => {
                     bb.introDone = true;
@@ -423,11 +485,9 @@ export default function PlaySceneBtree(props) {
                     <HandleInstDeathSequence/>
                     <HandleDeathSequence/>
                     <HandleMilestoneCutsceneSequence />
-                    <HandleGameCompleteSequence />
+                    <HandleMouseIntroSequence />
                     <HandleGameLoopSequence/>
-
                 </Selector>
-
             </Selector>
         </Root>
     )

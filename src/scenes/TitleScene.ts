@@ -37,9 +37,6 @@ export default class TitleScene extends SceneExtended {
 		sidewalkTileSprite.setOrigin(0, 0);
 		sidewalkTileSprite.tilePositionX = 16;
 
-		// bikes
-		const bikes = this.add.sprite(245, 360, "bikes", 0);
-
 		// title
 		const title = this.add.image(0, 0, "title");
 		title.setOrigin(0, 0);
@@ -62,13 +59,20 @@ export default class TitleScene extends SceneExtended {
 		startText.maxWidth = 358;
 		startText.dropShadowAlpha = 1;
 
+		// bikesChris
+		const bikesChris = this.add.sprite(243, 359, "bikes", 0);
+
+		// bikesConnor
+		const bikesConnor = this.add.sprite(307, 359, "bikes", 4);
+
 		this.mountain_bg = mountain_bg;
 		this.bg_houses_layer = bg_houses_layer;
 		this.roadTileSprite = roadTileSprite;
 		this.sidewalkTileSprite = sidewalkTileSprite;
-		this.bikes = bikes;
 		this.van_title = van_title;
 		this.startText = startText;
+		this.bikesChris = bikesChris;
+		this.bikesConnor = bikesConnor;
 
 		this.events.emit("scene-awake");
 	}
@@ -77,9 +81,10 @@ export default class TitleScene extends SceneExtended {
 	public bg_houses_layer!: Phaser.GameObjects.Layer;
 	public roadTileSprite!: Phaser.GameObjects.TileSprite;
 	public sidewalkTileSprite!: Phaser.GameObjects.TileSprite;
-	public bikes!: Phaser.GameObjects.Sprite;
 	public van_title!: Phaser.GameObjects.Sprite;
 	public startText!: Phaser.GameObjects.BitmapText;
+	public bikesChris!: Phaser.GameObjects.Sprite;
+	public bikesConnor!: Phaser.GameObjects.Sprite;
 
 	/* START-USER-CODE */
 
@@ -129,7 +134,7 @@ export default class TitleScene extends SceneExtended {
 				this.time.delayedCall(1000, () => {
 					fadeBetweenScenes(this.game, GameRouter.TitleScene.key, GameRouter.PlayScene.key);
 					this.gameManager.reset();
-					//this.gameManager.distance = 748;
+
 				})
 			}
 		});
@@ -141,7 +146,9 @@ export default class TitleScene extends SceneExtended {
 		})
 
 		this.van_title.play('anim-player-van-idle', true);
-		this.bikes.play('anim-bikes', true)
+
+		this.bikesChris.play('anim-bikes-chris', true)
+		this.bikesConnor.play('anim-bikes-connor', true)
 
 	}
 

@@ -117,23 +117,34 @@ export default abstract class baseStageScene extends SceneExtended {
 
         this.physics.add.collider(this.enemyCollisionGroup, this.hero, (player:any, enemy: any) => {
 
-            if(this.hero.animStateMachine.isCurrentState('hurt') || player.hitStun)
+            if(this.hero.animStateMachine.isCurrentState('hurt') || this.hero.animStateMachine.isCurrentState('pete-hurt') || player.hitStun)
                 return;
 
             if (player.body.touching.down && enemy.body.touching.up && enemy.boppable === true) {
 
                 player.body.setVelocityY(-CONST_BOUNCE_JUMP_VELOCITY);
+                this.sound.play('bop', {volume: 1});
+                if(enemy.damagable) {
+                    (enemy as EnemyBase).takeDamage(null, 1, this.hero);
+                }
 
-                (enemy as EnemyBase).takeDamage(null, 1, this.hero)
                 return;
             }
 
-            if(!this.hero.animStateMachine.isCurrentState('hurt'))
-                this.hero.animStateMachine.setState('hurt');
+            if(this.hero.animStateMachine?.currentState.name.indexOf('pete') > -1) {
+                if(!this.hero.animStateMachine.isCurrentState('pete-hurt'))
+                    this.hero.animStateMachine.setState('pete-hurt');
+            }
+            else {
+                if(!this.hero.animStateMachine.isCurrentState('hurt'))
+                    this.hero.animStateMachine.setState('hurt');
+            }
+
+
 
 
         }, (player, enemy) => {
-            if(this.hero.animStateMachine.isCurrentState('hurt') || this.hero.hitStun)
+            if(this.hero.animStateMachine.isCurrentState('hurt') || this.hero.animStateMachine.isCurrentState('pete-hurt') || this.hero.hitStun)
                 return false;
 
             return true;

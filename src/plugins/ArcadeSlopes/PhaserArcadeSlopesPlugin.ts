@@ -69,9 +69,9 @@ export default class PhaserArcadeSlopesPlugin extends Phaser.Plugins
             }
 
             /*if (isGoingDown) {
-              let side = body.velocity.x > 0 ? body.right : body.left;
+              let side = body.num.x > 0 ? body.right : body.left;
               let tileSide =
-                body.velocity.x > 0
+                body.num.x > 0
                   ? t.getRight(this.scene.cameras.main)
                   : t.getLeft(this.scene.cameras.main);
               if (side < tileSide) {

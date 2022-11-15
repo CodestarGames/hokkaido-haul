@@ -22,7 +22,7 @@
             {
                 "url": "assets/sprites/etc/bikes.png",
                 "frameConfig": {
-                    "frameWidth": 112,
+                    "frameWidth": 48,
                     "frameHeight": 48,
                     "startFrame": 0,
                     "endFrame": -1,
@@ -34,10 +34,50 @@
             },
             {
                 "url": [
+                    "assets/sfx/bop.wav"
+                ],
+                "type": "audio",
+                "key": "bop"
+            },
+            {
+                "url": "assets/sprites/obstacles/car1.png",
+                "frameConfig": {
+                    "frameWidth": 80,
+                    "frameHeight": 55,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "car1"
+            },
+            {
+                "url": "assets/sprites/obstacles/car2.png",
+                "frameConfig": {
+                    "frameWidth": 80,
+                    "frameHeight": 55,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "car2"
+            },
+            {
+                "url": [
                     "assets/sfx/death-fall.mp3"
                 ],
                 "type": "audio",
                 "key": "death-fall"
+            },
+            {
+                "url": [
+                    "assets/sfx/drive.wav"
+                ],
+                "type": "audio",
+                "key": "drive"
             },
             {
                 "url": "assets/sprites/obstacles/drone.png",
@@ -51,6 +91,19 @@
                 },
                 "type": "spritesheet",
                 "key": "drone"
+            },
+            {
+                "url": "assets/sprites/etc/effect.png",
+                "frameConfig": {
+                    "frameWidth": 48,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "effect"
             },
             {
                 "url": [
@@ -99,6 +152,19 @@
                 "key": "intro-music"
             },
             {
+                "url": "assets/sprites/obstacles/ironmouse.png",
+                "frameConfig": {
+                    "frameWidth": 69,
+                    "frameHeight": 112,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "ironmouse"
+            },
+            {
                 "url": [
                     "assets/sfx/jump.wav"
                 ],
@@ -140,10 +206,33 @@
                 "key": "overpass-pillar"
             },
             {
+                "url": "assets/sprites/player/pete-hurt.png",
+                "type": "image",
+                "key": "pete-hurt"
+            },
+            {
+                "url": "assets/sprites/player/pete-punch.png",
+                "frameConfig": {
+                    "frameWidth": 40,
+                    "frameHeight": 40,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "pete-punch"
+            },
+            {
                 "textureURL": "assets/fonts/pixel.png",
                 "fontDataURL": "assets/fonts/pixel.xml",
                 "type": "bitmapFont",
                 "key": "pixel"
+            },
+            {
+                "url": "assets/sprites/obstacles/potato.png",
+                "type": "image",
+                "key": "potato"
             },
             {
                 "url": "assets/sprites/ui/PremierTendo.png",
@@ -190,6 +279,32 @@
                 "url": "assets/sprites/bg/sidewalk.png",
                 "type": "image",
                 "key": "sidewalk"
+            },
+            {
+                "url": "assets/sprites/player/sonic-pete-ball.png",
+                "frameConfig": {
+                    "frameWidth": 25,
+                    "frameHeight": 25,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "sonic-pete-ball"
+            },
+            {
+                "url": "assets/sprites/player/sonicpeterun.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "sonicpeterun"
             },
             {
                 "url": "assets/sprites/ui/title.png",
