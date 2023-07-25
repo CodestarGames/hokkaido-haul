@@ -6,7 +6,7 @@ import Hero from "./Actors/Hero/Hero";
 import {PointerDownAction} from "./Actions/PointerDownAction";
 import {addEffects} from "./Effect";
 import {StateMachine} from "./StateMachine";
-import {DefaultHeroType} from "./Actors/Hero/DefaultHeroType";
+import {DefaultHeroType, IronmouseHeroType} from "./Actors/Hero/DefaultHeroType";
 import {CONST_BOUNCE_JUMP_VELOCITY} from "./Constants";
 import EnemyBase from "./Actors/Enemy/EnemyBase";
 
@@ -96,7 +96,7 @@ export default abstract class baseStageScene extends SceneExtended {
         });
 
 
-        this.hero.setHeroType(new DefaultHeroType());
+        this.hero.setHeroType(new IronmouseHeroType());
 
     }
 

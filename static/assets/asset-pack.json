@@ -154,8 +154,8 @@
             {
                 "url": "assets/sprites/obstacles/ironmouse.png",
                 "frameConfig": {
-                    "frameWidth": 69,
-                    "frameHeight": 112,
+                    "frameWidth": 68,
+                    "frameHeight": 102,
                     "startFrame": 0,
                     "endFrame": -1,
                     "spacing": 0,

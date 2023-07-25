@@ -45,7 +45,7 @@ export class _JumpAction extends Mixin(GeneratorActionMixin, Action) {
                 } else {
                     // hero is allowed to jump higher (not yet 15 frames of jumping)
                     this.hero.jumpStep++;
-                    this.actor.body.velocity.y = -CONST_JUMP_VELOCITY;
+                    this.actor.body.velocity.y = -this.hero.heroType.jumpVel;
                     yield ActionResult.RUNNING;
                 }
             } else if (this.hero.jumpStep !== 0) { //reset jumpStep since the hero is no longer holding the jump key

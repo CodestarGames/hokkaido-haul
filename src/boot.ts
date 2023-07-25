@@ -3,7 +3,7 @@ import {GameRouter} from "./common/GameRouter";
 import PlayScene from "./PlayScene";
 import TitleScene from "./scenes/TitleScene";
 import StartScene from "./scenes/StartScene";
-import {DefaultHeroType} from "./common/Actors/Hero/DefaultHeroType";
+import {DefaultHeroType, IronmouseHeroType} from "./common/Actors/Hero/DefaultHeroType";
 import GameOverScene from "./scenes/GameOverScene";
 import GameCompleteScene from "./scenes/GameCompleteScene";
 
@@ -44,7 +44,7 @@ export class Boot extends Phaser.Scene {
         this.scene.start(GameRouter.ControllerScene.key, {
             levelSceneKey: GameRouter.StartScene.key,
             config: {
-                heroType: new DefaultHeroType(),
+                heroType: new IronmouseHeroType(),
                 stageKey: "StartScene"
             }
         });

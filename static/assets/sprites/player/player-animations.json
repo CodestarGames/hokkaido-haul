@@ -22,7 +22,7 @@
             "repeat": -1
         },
         {
-            "key": "anim-player-van-crouch",
+            "key": "anim-player-van-idle-crouch",
             "type": "frame",
             "frames": [
                 {
@@ -41,6 +41,26 @@
             "frameRate": 12,
             "skipMissedFrames": true,
             "repeat": -1
+        },
+        {
+            "key": "anim-player-van-crouch",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "van-idle",
+                    "frame": 2,
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "van-idle",
+                    "frame": 3,
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 12,
+            "skipMissedFrames": true
         },
         {
             "key": "anim-bikes-chris",
@@ -136,7 +156,7 @@
             "repeat": -1
         },
         {
-            "key": "anim-ironmouse-duck",
+            "key": "anim-ironmouse-crouch",
             "type": "frame",
             "frames": [
                 {
@@ -158,11 +178,11 @@
                     "keyframe": false
                 }
             ],
-            "frameRate": 8,
+            "frameRate": 16,
             "skipMissedFrames": true
         },
         {
-            "key": "anim-ironmouse-idle-duck",
+            "key": "anim-ironmouse-idle-crouch",
             "type": "frame",
             "frames": [
                 {
