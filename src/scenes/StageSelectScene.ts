@@ -23,21 +23,21 @@ export default class StageSelectScene extends SceneExtended {
 	editorCreate(): void {
 
 		// selectRect_2
-		const selectRect_2 = this.add.rectangle(113, 300, 120, 96);
+		const selectRect_2 = this.add.rectangle(113, 219, 120, 64);
 		selectRect_2.fillColor = 12314499;
 		selectRect_2.isStroked = true;
 		selectRect_2.strokeColor = 3958591;
 		selectRect_2.lineWidth = 3;
 
 		// selectRect_1
-		const selectRect_1 = this.add.rectangle(366, 148, 120, 96);
+		const selectRect_1 = this.add.rectangle(366, 119, 120, 64);
 		selectRect_1.fillColor = 12314499;
 		selectRect_1.isStroked = true;
 		selectRect_1.strokeColor = 3958591;
 		selectRect_1.lineWidth = 3;
 
 		// titleText_4
-		const titleText_4 = this.add.bitmapText(314, 274, "pixel", "Akiba Adventure\n");
+		const titleText_4 = this.add.bitmapText(314, 191, "pixel", "Akiba Adventure\n");
 		titleText_4.scaleX = 2;
 		titleText_4.scaleY = 2.5;
 		titleText_4.setOrigin(0.5, 0.5);
@@ -51,7 +51,7 @@ export default class StageSelectScene extends SceneExtended {
 		titleText_4.maxWidth = 358;
 
 		// titleText_3
-		const titleText_3 = this.add.bitmapText(174, 122, "pixel", "Hokkaido Haul");
+		const titleText_3 = this.add.bitmapText(174, 92, "pixel", "Hokkaido Haul");
 		titleText_3.scaleX = 2;
 		titleText_3.scaleY = 2.5;
 		titleText_3.setOrigin(0.5, 0.5);
@@ -65,7 +65,7 @@ export default class StageSelectScene extends SceneExtended {
 		titleText_3.maxWidth = 358;
 
 		// titleText
-		const titleText = this.add.bitmapText(174, 168, "pixel", "Drive through rugged \nnorthern Japan!");
+		const titleText = this.add.bitmapText(174, 129, "pixel", "Drive through rugged \nnorthern Japan!");
 		titleText.scaleX = 2;
 		titleText.scaleY = 2.5;
 		titleText.setOrigin(0.5, 0.5);
@@ -79,7 +79,7 @@ export default class StageSelectScene extends SceneExtended {
 		titleText.maxWidth = 358;
 
 		// titleText_2
-		const titleText_2 = this.add.bitmapText(314, 322, "pixel", "Travel to the otaku \ncapital of Japan!");
+		const titleText_2 = this.add.bitmapText(314, 229, "pixel", "Travel to the otaku \ncapital of Japan!");
 		titleText_2.scaleX = 2;
 		titleText_2.scaleY = 2.5;
 		titleText_2.setOrigin(0.5, 0.5);
@@ -107,11 +107,46 @@ export default class StageSelectScene extends SceneExtended {
 		titleText_1.maxWidth = 358;
 
 		// selectRect
-		const selectRect = this.add.rectangle(240, 149, 420, 128);
+		const selectRect = this.add.rectangle(240, 118, 420, 96);
 		selectRect.fillColor = 12314499;
 		selectRect.isStroked = true;
 		selectRect.strokeColor = 3958591;
 		selectRect.lineWidth = 3;
+
+		// titleText_5
+		const titleText_5 = this.add.bitmapText(170, 300, "pixel", "???\n");
+		titleText_5.scaleX = 2;
+		titleText_5.scaleY = 2.5;
+		titleText_5.setOrigin(0.5, 0.5);
+		titleText_5.tintFill = true;
+		titleText_5.tintTopLeft = 5013592;
+		titleText_5.tintTopRight = 5013592;
+		titleText_5.tintBottomLeft = 5013592;
+		titleText_5.tintBottomRight = 5013592;
+		titleText_5.text = "???\n";
+		titleText_5.fontSize = 8;
+		titleText_5.maxWidth = 358;
+
+		// titleText_6
+		const titleText_6 = this.add.bitmapText(170, 338, "pixel", "????? ????? ????\n???? ???? ???????");
+		titleText_6.scaleX = 2;
+		titleText_6.scaleY = 2.5;
+		titleText_6.setOrigin(0.5, 0.5);
+		titleText_6.tintFill = true;
+		titleText_6.tintTopLeft = 5013592;
+		titleText_6.tintTopRight = 5013592;
+		titleText_6.tintBottomLeft = 5013592;
+		titleText_6.tintBottomRight = 5013592;
+		titleText_6.text = "????? ????? ????\n???? ???? ???????";
+		titleText_6.fontSize = 6;
+		titleText_6.maxWidth = 358;
+
+		// selectRect_4
+		const selectRect_4 = this.add.rectangle(365, 328, 120, 64);
+		selectRect_4.fillColor = 12314499;
+		selectRect_4.isStroked = true;
+		selectRect_4.strokeColor = 3958591;
+		selectRect_4.lineWidth = 3;
 
 		this.selectRect_2 = selectRect_2;
 		this.selectRect_1 = selectRect_1;
@@ -121,6 +156,9 @@ export default class StageSelectScene extends SceneExtended {
 		this.titleText_2 = titleText_2;
 		this.titleText_1 = titleText_1;
 		this.selectRect = selectRect;
+		this.titleText_5 = titleText_5;
+		this.titleText_6 = titleText_6;
+		this.selectRect_4 = selectRect_4;
 
 		this.events.emit("scene-awake");
 	}
@@ -133,6 +171,9 @@ export default class StageSelectScene extends SceneExtended {
 	public titleText_2!: Phaser.GameObjects.BitmapText;
 	public titleText_1!: Phaser.GameObjects.BitmapText;
 	private selectRect!: Phaser.GameObjects.Rectangle;
+	public titleText_5!: Phaser.GameObjects.BitmapText;
+	public titleText_6!: Phaser.GameObjects.BitmapText;
+	private selectRect_4!: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
@@ -147,15 +188,15 @@ export default class StageSelectScene extends SceneExtended {
 		super.update(time, dt);
 
 		if (this.controls.up.isPressed) {
-			if (this.selectRect.y !== 147)
+			if (this.selectRect.y !== 118)
 				this.sound.play('sfxStart', {volume: 0.2});
-			this.selectRect.setPosition(239, 147);
+			this.selectRect.setPosition(239, 118);
 		}
 
 		if (this.controls.down.isPressed) {
-			if (this.selectRect.y !== 300)
+			if (this.selectRect.y !== 220)
 				this.sound.play('sfxStart', {volume: 0.2});
-			this.selectRect.setPosition(239, 300);
+			this.selectRect.setPosition(239, 220);
 		}
 
 		if (this.controls.jump.isPressed) {

@@ -70,7 +70,7 @@
                     "tintBottomLeft": "#4C8058",
                     "tintBottomRight": "#4C8058",
                     "tintFill": true,
-                    "text": "Distance: 0km of 300",
+                    "text": "Distance: 0km of 250",
                     "font": "pixel",
                     "fontSize": 6,
                     "maxWidth": 358

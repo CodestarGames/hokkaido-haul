@@ -41,7 +41,7 @@ export default function PlaySceneBtree(props) {
     let incGameScore = () => {
         game.gameManager.score+= (10)// + (10 / game.gameManager.gameSpeed);
         scene.hUDPanelPrefabInst.scoreText.text = "Donations:$" + game.gameManager.score.toFixed(0);
-        scene.hUDPanelPrefabInst.kMText.text = "Distance:" + game.gameManager.distance.toFixed(1) + "km/300";
+        scene.hUDPanelPrefabInst.kMText.text = "Distance:" + game.gameManager.distance.toFixed(1) + "km/250";
         GameManagerSingleton.updateHud(game);
     }
 
@@ -236,7 +236,7 @@ export default function PlaySceneBtree(props) {
 
     function HandleGameCompletedSequence(props) {
         return (
-            <Sequence {...props} cond={() => game.gameManager.distance >= 299.9 }>
+            <Sequence {...props} cond={() => game.gameManager.distance >= 249.9 }>
                 <ActionDisableControls />
                 <Sequence step={() => { scene.warpTileSprite.tilePositionX += 32; }}>
                     <FunctionCall fn={() => {
