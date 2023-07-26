@@ -5,11 +5,9 @@ import {HeroType} from "./Actors/Hero/HeroType";
 import Hero from "./Actors/Hero/Hero";
 import {PointerDownAction} from "./Actions/PointerDownAction";
 import {addEffects} from "./Effect";
-import {StateMachine} from "./StateMachine";
-import {DefaultHeroType, IronmouseHeroType} from "./Actors/Hero/DefaultHeroType";
+import {IronmouseHeroType} from "./Actors/Hero/DefaultHeroType";
 import {CONST_BOUNCE_JUMP_VELOCITY} from "./Constants";
 import EnemyBase from "./Actors/Enemy/EnemyBase";
-
 
 
 export default abstract class baseStageScene extends SceneExtended {
@@ -95,8 +93,7 @@ export default abstract class baseStageScene extends SceneExtended {
             boundingBox: new Phaser.Geom.Rectangle(0,0, 1920, 960)
         });
 
-
-        this.hero.setHeroType(new IronmouseHeroType());
+        this.hero.setHeroType(data.heroType);
 
     }
 

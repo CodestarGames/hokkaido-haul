@@ -3,7 +3,7 @@ import {StateMachine} from "../../StateMachine";
 import Hero from "./Hero";
 import {CONST_BOUNCE_JUMP_VELOCITY} from "../../Constants";
 import PlayScene from "../../../PlayScene";
-import {IronmouseHeroType} from "./DefaultHeroType";
+import {DefaultHeroType, IronmouseHeroType} from "./DefaultHeroType";
 
 
 export function HeroStateMachine(props) {
@@ -93,6 +93,25 @@ export function HeroStateMachine(props) {
             //player.stop()
         }
     })
+        .addState('dash', {
+            onEnter() {
+                hero.angle = 0;
+                if(hero.hitStun === false)
+                    hero.play(hero.getFormattedAnimName('idle'), true);
+                scene.time.delayedCall(350, () => {
+                    hero.animStateMachine.setState('fall');
+                })
+            },
+            update() {
+                hero.jumpStep = 0;
+                getHeroBody().setVelocity(400, -60);
+                return undefined;
+
+            },
+            onExit() {
+                //player.stop()
+            }
+        })
     .addState('jump', {
         onEnter() {
             console.log('beginjump')
@@ -107,7 +126,6 @@ export function HeroStateMachine(props) {
             //     heroBody.setVelocityY(-240);
             // }
 
-
             if (getHeroBody().velocity.y > 0 && !getHeroBody().onFloor()) {
                 hero.animStateMachine.setState('fall');
                 return;
@@ -115,7 +133,7 @@ export function HeroStateMachine(props) {
 
             hero.angle = -2;
             if(hero.hitStun === false)
-                hero.play(hero.getFormattedAnimName('idle'), true);
+                hero.play(hero.getFormattedAnimName('jump'), true);
             hero.jumpStep = 1;
         },
         update() {
@@ -123,6 +141,12 @@ export function HeroStateMachine(props) {
             if (getHeroBody().onCeiling()) {
                 hero.animStateMachine.setState('fall');
             }
+
+            // if(hero.heroType instanceof DefaultHeroType) {
+            //     if(scene.controls.jump.isPressed && !getHeroBody().onFloor() && (Date.now() - scene.controls.jump.lastPressedAt > 400)) {
+            //         hero.animStateMachine.setState('dash')
+            //     }
+            // }
 
             if (getHeroBody().velocity.y > 0 && !getHeroBody().onFloor()) {
                 hero.animStateMachine.setState('fall');
@@ -161,14 +185,14 @@ export function HeroStateMachine(props) {
         },
         onExit(){
             hero.angle = 0;
-
         }
     })
     .addState('fall', {
         onEnter() {
             hero.angle = 2;
             if(hero.hitStun === false)
-                hero.play(hero.getFormattedAnimName('idle'), true);
+                hero.play(hero.getFormattedAnimName('jump'), true);
+
         },
         update() {
             if(hero.heroType instanceof IronmouseHeroType) {
@@ -178,6 +202,12 @@ export function HeroStateMachine(props) {
                 }
                 else {
                     getHeroBody().setGravityY(2000)
+                }
+            }
+
+            if(hero.heroType instanceof DefaultHeroType) {
+                if(scene.controls.jump.isPressed && !getHeroBody().onFloor() && (Date.now() - scene.controls.jump.lastReleasedAt < 400)) {
+                    hero.animStateMachine.setState('dash')
                 }
             }
 
@@ -203,6 +233,7 @@ export function HeroStateMachine(props) {
             hero.angle = 0;
             //scene.sound.play("land", {volume: 0.4})
             getHeroBody().setGravityY(2000)
+
             scene.cameras.main.shake(120, 0.002, null, () => {});
         }
     })

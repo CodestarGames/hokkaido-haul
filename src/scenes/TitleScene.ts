@@ -29,7 +29,7 @@ export default class TitleScene extends SceneExtended {
 		const bg_houses_layer = this.add.layer();
 
 		// roadTileSprite
-		const roadTileSprite = this.add.tileSprite(0, 384, 480, 32, "road");
+		const roadTileSprite = this.add.tileSprite(0, 385, 480, 32, "road");
 		roadTileSprite.setOrigin(0, 0);
 
 		// sidewalkTileSprite
@@ -42,10 +42,10 @@ export default class TitleScene extends SceneExtended {
 		title.setOrigin(0, 0);
 
 		// van_title
-		const van_title = this.add.sprite(79, 336, "van-idle", 0);
+		const van_title = this.add.sprite(79, 334, "van-idle", 0);
 
 		// startText
-		const startText = this.add.bitmapText(240, 272, "pixel", "press space or A button");
+		const startText = this.add.bitmapText(240, 286, "pixel", "press space or A button");
 		startText.scaleX = 2;
 		startText.scaleY = 2.5;
 		startText.setOrigin(0.5, 0);
@@ -59,11 +59,9 @@ export default class TitleScene extends SceneExtended {
 		startText.maxWidth = 358;
 		startText.dropShadowAlpha = 1;
 
-		// bikesChris
-		const bikesChris = this.add.sprite(243, 359, "bikes", 0);
-
-		// bikesConnor
-		const bikesConnor = this.add.sprite(307, 359, "bikes", 4);
+		// mouse_title
+		const mouse_title = this.add.sprite(430, 209, "ironmouse", 0);
+		mouse_title.flipX = true;
 
 		this.mountain_bg = mountain_bg;
 		this.bg_houses_layer = bg_houses_layer;
@@ -71,8 +69,7 @@ export default class TitleScene extends SceneExtended {
 		this.sidewalkTileSprite = sidewalkTileSprite;
 		this.van_title = van_title;
 		this.startText = startText;
-		this.bikesChris = bikesChris;
-		this.bikesConnor = bikesConnor;
+		this.mouse_title = mouse_title;
 
 		this.events.emit("scene-awake");
 	}
@@ -83,8 +80,7 @@ export default class TitleScene extends SceneExtended {
 	public sidewalkTileSprite!: Phaser.GameObjects.TileSprite;
 	public van_title!: Phaser.GameObjects.Sprite;
 	public startText!: Phaser.GameObjects.BitmapText;
-	public bikesChris!: Phaser.GameObjects.Sprite;
-	public bikesConnor!: Phaser.GameObjects.Sprite;
+	public mouse_title!: Phaser.GameObjects.Sprite;
 
 	/* START-USER-CODE */
 
@@ -122,7 +118,7 @@ export default class TitleScene extends SceneExtended {
 		this.input.keyboard.once('keydown-SPACE', () => {
 			this.sound.play('sfxStart', {volume: 0.2});
 			this.time.delayedCall(1000, () => {
-				fadeBetweenScenes(this.game, GameRouter.TitleScene.key, GameRouter.PlayScene.key);
+				fadeBetweenScenes(this.game, GameRouter.TitleScene.key, GameRouter.CharacterSelectScene.key);
 				this.gameManager.reset();
 				//this.gameManager.distance = 748;
 			})
@@ -132,9 +128,8 @@ export default class TitleScene extends SceneExtended {
 			if(pad.A) {
 				this.sound.play('sfxStart', {volume: 0.2});
 				this.time.delayedCall(1000, () => {
-					fadeBetweenScenes(this.game, GameRouter.TitleScene.key, GameRouter.PlayScene.key);
+					fadeBetweenScenes(this.game, GameRouter.TitleScene.key, GameRouter.CharacterSelectScene.key);
 					this.gameManager.reset();
-
 				})
 			}
 		});
@@ -146,9 +141,10 @@ export default class TitleScene extends SceneExtended {
 		})
 
 		this.van_title.play('anim-player-van-idle', true);
+		this.mouse_title.play('anim-ironmouse-idle', true);
 
-		this.bikesChris.play('anim-bikes-chris', true)
-		this.bikesConnor.play('anim-bikes-connor', true)
+		//this.bikesChris.play('anim-bikes-chris', true)
+		//this.bikesConnor.play('anim-bikes-connor', true)
 
 	}
 
@@ -166,6 +162,13 @@ export default class TitleScene extends SceneExtended {
 	}
 
 	handleInput() {
+	}
+
+	onDestroy(scene) {
+
+		super.onDestroy(scene);
+
+
 	}
 
 	/* END-USER-CODE */

@@ -44,7 +44,7 @@
             "texture": {
                 "key": "road"
             },
-            "y": 384,
+            "y": 385,
             "originX": 0,
             "originY": 0,
             "width": 480,
@@ -88,7 +88,7 @@
                 "frame": 0
             },
             "x": 79,
-            "y": 336
+            "y": 334
         },
         {
             "type": "BitmapText",
@@ -97,7 +97,7 @@
             "scope": "PUBLIC",
             "components": [],
             "x": 240,
-            "y": 272,
+            "y": 286,
             "scaleX": 2,
             "scaleY": 2.5,
             "originX": 0.5,
@@ -114,29 +114,17 @@
         },
         {
             "type": "Sprite",
-            "id": "379e285b-970d-4105-94cd-1798276f7145",
-            "label": "bikesChris",
+            "id": "3913ae56-889b-4eb6-9d14-8ee8fb1e2226",
+            "label": "mouse_title",
             "scope": "PUBLIC",
             "components": [],
             "texture": {
-                "key": "bikes",
+                "key": "ironmouse",
                 "frame": 0
             },
-            "x": 243,
-            "y": 359
-        },
-        {
-            "type": "Sprite",
-            "id": "fd789036-d6a3-4205-84d1-5dd379b9fc3d",
-            "label": "bikesConnor",
-            "scope": "PUBLIC",
-            "components": [],
-            "texture": {
-                "key": "bikes",
-                "frame": 4
-            },
-            "x": 307,
-            "y": 359
+            "x": 430,
+            "y": 209,
+            "flipX": true
         }
     ],
     "plainObjects": [],

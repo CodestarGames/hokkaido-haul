@@ -81,7 +81,7 @@ export default abstract class Actor extends Phaser.GameObjects.Sprite {
                 element: null,
                 pos,
                 dir: null,
-                options: {text: "+1 ROOT BEER"}
+                options: {text: "+1 HYPE"}
             });
 
             this.game.gameManager.energy += 1;

@@ -22,6 +22,27 @@
             "repeat": -1
         },
         {
+            "key": "anim-player-van-jump",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "van-idle",
+                    "frame": 0,
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "van-idle",
+                    "frame": 1,
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 12,
+            "skipMissedFrames": true,
+            "repeat": -1
+        },
+        {
             "key": "anim-player-van-idle-crouch",
             "type": "frame",
             "frames": [
@@ -124,6 +145,39 @@
         },
         {
             "key": "anim-ironmouse-idle",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "ironmouse",
+                    "frame": 0,
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "ironmouse",
+                    "frame": 1,
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "ironmouse",
+                    "frame": 2,
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "ironmouse",
+                    "frame": 3,
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 8,
+            "skipMissedFrames": true,
+            "repeat": -1
+        },
+        {
+            "key": "anim-ironmouse-jump",
             "type": "frame",
             "frames": [
                 {
@@ -296,7 +350,7 @@
             "repeat": -1
         },
         {
-            "key": "anim-pete-run",
+            "key": "anim-pete-idle",
             "type": "frame",
             "frames": [
                 {

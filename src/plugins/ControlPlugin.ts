@@ -50,6 +50,48 @@ export class ControlsPlugin extends Phaser.Plugins.ScenePlugin implements Record
         this.shutdown();
     }
 
+    private handleJoystick() {
+        var pad = this.scene.input.gamepad.getPad(0);
+
+        if (pad && pad.axes.length) {
+            if (
+                this.scene.input.gamepad.pad1.left ||
+                this.scene.input.gamepad.pad1.down ||
+                this.scene.input.gamepad.pad1.up ||
+                this.scene.input.gamepad.pad1.right
+            ) {
+                return;
+            }
+
+            var axisH = pad.axes[0].getValue();
+            var axisV = pad.axes[1].getValue();
+
+            if (axisH === 0 && axisV === 0) {
+                if (this.left.isPressed) this.left.release();
+
+                if (this.right.isPressed) this.right.release();
+
+                return;
+            }
+
+            if (axisH < -0.3) {
+                this.left.press();
+            } else if (this.left.isPressed) this.left.release();
+
+            if (axisH > 0.3) {
+                this.right.press();
+            } else if (this.right.isPressed) this.right.release();
+
+            if (axisV > 0.3 && Math.abs(axisH) < 0.35) {
+                this.down.press();
+            } else if (this.down.isPressed) this.down.release();
+
+            if (axisV < -0.3 && Math.abs(axisH) < 0.35) {
+                this.up.press();
+            } else if (this.up.isPressed) this.up.release();
+        }
+    }
+
     private startListening() {
         //this.scene.input.gamepad.on(Phaser.Input.Gamepad.Events.CONNECTED, () => {
             this.scene.input.gamepad.on(Phaser.Input.Gamepad.Events.BUTTON_DOWN, this.onGamepadPress, this);
@@ -58,6 +100,8 @@ export class ControlsPlugin extends Phaser.Plugins.ScenePlugin implements Record
 
         this.scene.input.keyboard.on(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, this.onPress, this);
         this.scene.input.keyboard.on(Phaser.Input.Keyboard.Events.ANY_KEY_UP, this.onRelease, this);
+
+        this.scene.events.on("update", this.handleJoystick, this);
     }
 
     private shutdown() {
@@ -67,6 +111,7 @@ export class ControlsPlugin extends Phaser.Plugins.ScenePlugin implements Record
 
         this.scene.input.keyboard.off(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, this.onPress, this);
         this.scene.input.keyboard.off(Phaser.Input.Keyboard.Events.ANY_KEY_UP, this.onRelease, this);
+        this.scene.events.off("update", this.handleJoystick, this);
 
         this.left.destroy();
         this.right.destroy();

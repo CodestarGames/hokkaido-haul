@@ -236,7 +236,7 @@ export default function PlaySceneBtree(props) {
 
     function HandleGameCompletedSequence(props) {
         return (
-            <Sequence {...props} cond={() => game.gameManager.distance >= 29.9 }>
+            <Sequence {...props} cond={() => game.gameManager.distance >= 299.9 }>
                 <ActionDisableControls />
                 <Sequence step={() => { scene.warpTileSprite.tilePositionX += 32; }}>
                     <FunctionCall fn={() => {

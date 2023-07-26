@@ -127,7 +127,7 @@ export default class PlayScene extends BaseStageScene {
 	create(props) {
 		super.create(props);
 
-		this.sound.play('main-music', {loop: true, volume: 0.2});
+		this.sound.play('main-music', {loop: true, volume: 0.18});
 
 		let game = (this.game as GameExtended);
 		let playSceneBlackboard = {
@@ -253,8 +253,9 @@ export default class PlayScene extends BaseStageScene {
 		this.moveLevel();
 	}
 
-	onShutDown(){
-		this.BTreeManager.removeTree(this.BTree);
+	onDestroy(scene) {
+
+		super.onDestroy(scene);
 	}
 
 	/* END-USER-CODE */

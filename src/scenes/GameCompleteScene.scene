@@ -15,34 +15,12 @@
     "displayList": [
         {
             "type": "BitmapText",
-            "id": "529f829f-6769-4299-9fbf-2a294c1ff116",
-            "label": "titleText",
-            "scope": "PUBLIC",
-            "components": [],
-            "x": 240,
-            "y": 39,
-            "scaleX": 2,
-            "scaleY": 2.5,
-            "originX": 0.5,
-            "originY": 0.5,
-            "tintTopLeft": "#4C8058",
-            "tintTopRight": "#4C8058",
-            "tintBottomLeft": "#4C8058",
-            "tintBottomRight": "#4C8058",
-            "tintFill": true,
-            "text": "CONGRATULATIONS!",
-            "font": "pixel",
-            "fontSize": 12,
-            "maxWidth": 358
-        },
-        {
-            "type": "BitmapText",
             "id": "57f1e23d-4f25-4583-a16f-21b2f3c22ac0",
             "label": "finalScoreText",
             "scope": "PUBLIC",
             "components": [],
             "x": 240,
-            "y": 353,
+            "y": 348,
             "scaleX": 2,
             "scaleY": 2.5,
             "originX": 0.5,
@@ -66,7 +44,7 @@
                 "key": "title"
             },
             "x": 240,
-            "y": 287
+            "y": 247
         },
         {
             "type": "BitmapText",
@@ -75,7 +53,7 @@
             "scope": "PUBLIC",
             "components": [],
             "x": 240,
-            "y": 101,
+            "y": 30,
             "scaleX": 2,
             "scaleY": 2.5,
             "originX": 0.5,
@@ -97,7 +75,7 @@
             "scope": "PUBLIC",
             "components": [],
             "x": 240,
-            "y": 390,
+            "y": 379,
             "scaleX": 2,
             "scaleY": 2.5,
             "originX": 0.5,

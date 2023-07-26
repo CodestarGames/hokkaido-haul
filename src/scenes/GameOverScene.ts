@@ -79,6 +79,7 @@ export default class GameOverScene extends SceneExtended {
 
 	// Write your code here
 
+	inputEnabled = false;
 	create(props) {
 		super.create(props);
 
@@ -86,26 +87,31 @@ export default class GameOverScene extends SceneExtended {
 		this.scoreText.text = "Score: " + this.gameManager.score;
 
 		this.time.delayedCall(2000, () => {
-			this.input.keyboard.once('keydown-SPACE', () => {
-				this.sound.play('sfxStart', {volume: 0.2});
-				this.time.delayedCall(1000, () => {
-					fadeBetweenScenes(this.game, GameRouter.GameOverScene.key, GameRouter.TitleScene.key);
-				})
-			});
-
-			this.input.gamepad.once(Phaser.Input.Gamepad.Events.BUTTON_DOWN, (pad: Phaser.Input.Gamepad.Gamepad) => {
-				if(pad.A) {
-					this.sound.play('sfxStart', {volume: 0.2});
-					this.time.delayedCall(1000, () => {
-						fadeBetweenScenes(this.game, GameRouter.GameOverScene.key, GameRouter.TitleScene.key);
-					})
-				}
-			});
+			this.inputEnabled = true;
 		});
 
 	}
 
+	update(time, dt) {
+		super.update(time, dt);
+		if(this.controls.jump.isPressed && this.inputEnabled) {
+			this.inputEnabled = false;
+			this.sound.play('sfxStart', {volume: 0.2});
+			this.time.delayedCall(1000, () => {
+				fadeBetweenScenes(this.game, GameRouter.GameOverScene.key, GameRouter.TitleScene.key);
+			})
+		}
+	}
+
 	handleInput() {
+
+	}
+
+	onDestroy(scene) {
+
+		super.onDestroy(scene);
+
+
 	}
 
 	/* END-USER-CODE */

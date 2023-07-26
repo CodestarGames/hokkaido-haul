@@ -468,7 +468,7 @@ export function createUid() {
     return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
 
-export function fadeBetweenScenes (game: any, sceneKeyFrom: string, sceneKeyTo: string) {
+export function fadeBetweenScenes (game: any, sceneKeyFrom: string, sceneKeyTo: string, stopSound: boolean = true, data?: any, ) {
 
     let controllerScene = game.scene.getScene("ControllerScene") as any;
     let sceneFrom = game.scene.getScene(sceneKeyFrom) as any;
@@ -476,7 +476,9 @@ export function fadeBetweenScenes (game: any, sceneKeyFrom: string, sceneKeyTo: 
     if(!sceneTo) {
         game.scene.add(sceneKeyTo, GameRouter[sceneKeyTo].classConstructor, false);
     }
-    game.sound.stopAll();
+
+    if(stopSound)
+        game.sound.stopAll();
 
     sceneFrom.cameras.main.fade(100, 131, 169, 126, false, (cam, done) => {
 
@@ -488,7 +490,7 @@ export function fadeBetweenScenes (game: any, sceneKeyFrom: string, sceneKeyTo: 
                 parentZonePos.x = controllerScene.gameBoyWindowInst.x + controllerScene.gameBoyWindowInst.playAreaZone.x;
                 parentZonePos.y = controllerScene.gameBoyWindowInst.y + controllerScene.gameBoyWindowInst.playAreaZone.y;
 
-                controllerScene.gameWindow.scene.transition({target: sceneKeyTo, remove:true, data: {stageKey: sceneKeyTo} });
+                controllerScene.gameWindow.scene.transition({target: sceneKeyTo, remove:true, data: {stageKey: sceneKeyTo, ...data} });
                 let gameWindow = game.scene.getScene(sceneKeyTo);
                 controllerScene.gameWindow = gameWindow;
                 gameWindow.setParentZone(parentZonePos, controllerScene.gameBoyWindowInst.playAreaZone);

@@ -67,6 +67,13 @@
             },
             {
                 "url": [
+                    "assets/sfx/character-select-music.mp3"
+                ],
+                "type": "audio",
+                "key": "character-select-music"
+            },
+            {
+                "url": [
                     "assets/sfx/death-fall.mp3"
                 ],
                 "type": "audio",
@@ -155,7 +162,7 @@
                 "url": "assets/sprites/obstacles/ironmouse.png",
                 "frameConfig": {
                     "frameWidth": 68,
-                    "frameHeight": 102,
+                    "frameHeight": 106,
                     "startFrame": 0,
                     "endFrame": -1,
                     "spacing": 0,
