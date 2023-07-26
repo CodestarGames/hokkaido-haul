@@ -2,6 +2,13 @@
     "section1": {
         "files": [
             {
+                "url": [
+                    "assets/sfx/akiba-adventure-music.ogg"
+                ],
+                "type": "audio",
+                "key": "akiba-adventure-music"
+            },
+            {
                 "url": "assets/sprites/ui/avatars.png",
                 "frameConfig": {
                     "frameWidth": 96,

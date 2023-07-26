@@ -114,7 +114,7 @@ export default class StageSelectScene extends SceneExtended {
 		selectRect.lineWidth = 3;
 
 		// titleText_5
-		const titleText_5 = this.add.bitmapText(170, 300, "pixel", "???\n");
+		const titleText_5 = this.add.bitmapText(170, 300, "pixel", "??? ?????\n");
 		titleText_5.scaleX = 2;
 		titleText_5.scaleY = 2.5;
 		titleText_5.setOrigin(0.5, 0.5);
@@ -123,7 +123,7 @@ export default class StageSelectScene extends SceneExtended {
 		titleText_5.tintTopRight = 5013592;
 		titleText_5.tintBottomLeft = 5013592;
 		titleText_5.tintBottomRight = 5013592;
-		titleText_5.text = "???\n";
+		titleText_5.text = "??? ?????\n";
 		titleText_5.fontSize = 8;
 		titleText_5.maxWidth = 358;
 
