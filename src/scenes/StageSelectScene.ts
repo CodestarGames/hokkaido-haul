@@ -23,21 +23,23 @@ export default class StageSelectScene extends SceneExtended {
 	editorCreate(): void {
 
 		// selectRect_2
-		const selectRect_2 = this.add.rectangle(113, 219, 120, 64);
-		selectRect_2.fillColor = 12314499;
+		const selectRect_2 = this.add.rectangle(124, 314, 120, 64);
+		selectRect_2.isFilled = true;
+		selectRect_2.fillColor = 5013592;
 		selectRect_2.isStroked = true;
 		selectRect_2.strokeColor = 3958591;
 		selectRect_2.lineWidth = 3;
 
 		// selectRect_1
-		const selectRect_1 = this.add.rectangle(366, 119, 120, 64);
-		selectRect_1.fillColor = 12314499;
+		const selectRect_1 = this.add.rectangle(377, 178, 120, 64);
+		selectRect_1.isFilled = true;
+		selectRect_1.fillColor = 5013592;
 		selectRect_1.isStroked = true;
 		selectRect_1.strokeColor = 3958591;
 		selectRect_1.lineWidth = 3;
 
 		// titleText_4
-		const titleText_4 = this.add.bitmapText(314, 191, "pixel", "Akiba Adventure\n");
+		const titleText_4 = this.add.bitmapText(325, 287, "pixel", "Akiba Adventure\n");
 		titleText_4.scaleX = 2;
 		titleText_4.scaleY = 2.5;
 		titleText_4.setOrigin(0.5, 0.5);
@@ -51,7 +53,7 @@ export default class StageSelectScene extends SceneExtended {
 		titleText_4.maxWidth = 358;
 
 		// titleText_3
-		const titleText_3 = this.add.bitmapText(174, 92, "pixel", "Hokkaido Haul");
+		const titleText_3 = this.add.bitmapText(185, 150, "pixel", "Hokkaido Haul");
 		titleText_3.scaleX = 2;
 		titleText_3.scaleY = 2.5;
 		titleText_3.setOrigin(0.5, 0.5);
@@ -65,7 +67,7 @@ export default class StageSelectScene extends SceneExtended {
 		titleText_3.maxWidth = 358;
 
 		// titleText
-		const titleText = this.add.bitmapText(174, 129, "pixel", "Drive through rugged \nnorthern Japan!");
+		const titleText = this.add.bitmapText(185, 188, "pixel", "A Cyclathon through\nnorthern Japan!");
 		titleText.scaleX = 2;
 		titleText.scaleY = 2.5;
 		titleText.setOrigin(0.5, 0.5);
@@ -74,12 +76,12 @@ export default class StageSelectScene extends SceneExtended {
 		titleText.tintTopRight = 5013592;
 		titleText.tintBottomLeft = 5013592;
 		titleText.tintBottomRight = 5013592;
-		titleText.text = "Drive through rugged \nnorthern Japan!";
+		titleText.text = "A Cyclathon through\nnorthern Japan!";
 		titleText.fontSize = 6;
 		titleText.maxWidth = 358;
 
 		// titleText_2
-		const titleText_2 = this.add.bitmapText(314, 229, "pixel", "Travel to the otaku \ncapital of Japan!");
+		const titleText_2 = this.add.bitmapText(325, 324, "pixel", "Collect Cimma\nRolls for chat!");
 		titleText_2.scaleX = 2;
 		titleText_2.scaleY = 2.5;
 		titleText_2.setOrigin(0.5, 0.5);
@@ -88,12 +90,12 @@ export default class StageSelectScene extends SceneExtended {
 		titleText_2.tintTopRight = 5013592;
 		titleText_2.tintBottomLeft = 5013592;
 		titleText_2.tintBottomRight = 5013592;
-		titleText_2.text = "Travel to the otaku \ncapital of Japan!";
+		titleText_2.text = "Collect Cimma\nRolls for chat!";
 		titleText_2.fontSize = 6;
 		titleText_2.maxWidth = 358;
 
 		// titleText_1
-		const titleText_1 = this.add.bitmapText(241, 40, "pixel", "Stage Select");
+		const titleText_1 = this.add.bitmapText(241, 64, "pixel", "Stage Select");
 		titleText_1.scaleX = 2;
 		titleText_1.scaleY = 2.5;
 		titleText_1.setOrigin(0.5, 0.5);
@@ -107,46 +109,17 @@ export default class StageSelectScene extends SceneExtended {
 		titleText_1.maxWidth = 358;
 
 		// selectRect
-		const selectRect = this.add.rectangle(240, 118, 420, 96);
+		const selectRect = this.add.rectangle(251, 177, 420, 96);
 		selectRect.fillColor = 12314499;
 		selectRect.isStroked = true;
 		selectRect.strokeColor = 3958591;
 		selectRect.lineWidth = 3;
 
-		// titleText_5
-		const titleText_5 = this.add.bitmapText(170, 300, "pixel", "??? ?????\n");
-		titleText_5.scaleX = 2;
-		titleText_5.scaleY = 2.5;
-		titleText_5.setOrigin(0.5, 0.5);
-		titleText_5.tintFill = true;
-		titleText_5.tintTopLeft = 5013592;
-		titleText_5.tintTopRight = 5013592;
-		titleText_5.tintBottomLeft = 5013592;
-		titleText_5.tintBottomRight = 5013592;
-		titleText_5.text = "??? ?????\n";
-		titleText_5.fontSize = 8;
-		titleText_5.maxWidth = 358;
+		// image_1
+		this.add.image(378, 181, "bear");
 
-		// titleText_6
-		const titleText_6 = this.add.bitmapText(170, 338, "pixel", "????? ????? ????\n???? ???? ???????");
-		titleText_6.scaleX = 2;
-		titleText_6.scaleY = 2.5;
-		titleText_6.setOrigin(0.5, 0.5);
-		titleText_6.tintFill = true;
-		titleText_6.tintTopLeft = 5013592;
-		titleText_6.tintTopRight = 5013592;
-		titleText_6.tintBottomLeft = 5013592;
-		titleText_6.tintBottomRight = 5013592;
-		titleText_6.text = "????? ????? ????\n???? ???? ???????";
-		titleText_6.fontSize = 6;
-		titleText_6.maxWidth = 358;
-
-		// selectRect_4
-		const selectRect_4 = this.add.rectangle(365, 328, 120, 64);
-		selectRect_4.fillColor = 12314499;
-		selectRect_4.isStroked = true;
-		selectRect_4.strokeColor = 3958591;
-		selectRect_4.lineWidth = 3;
+		// image
+		this.add.image(125, 315, "cimmaroll");
 
 		this.selectRect_2 = selectRect_2;
 		this.selectRect_1 = selectRect_1;
@@ -156,9 +129,6 @@ export default class StageSelectScene extends SceneExtended {
 		this.titleText_2 = titleText_2;
 		this.titleText_1 = titleText_1;
 		this.selectRect = selectRect;
-		this.titleText_5 = titleText_5;
-		this.titleText_6 = titleText_6;
-		this.selectRect_4 = selectRect_4;
 
 		this.events.emit("scene-awake");
 	}
@@ -171,40 +141,81 @@ export default class StageSelectScene extends SceneExtended {
 	public titleText_2!: Phaser.GameObjects.BitmapText;
 	public titleText_1!: Phaser.GameObjects.BitmapText;
 	private selectRect!: Phaser.GameObjects.Rectangle;
-	public titleText_5!: Phaser.GameObjects.BitmapText;
-	public titleText_6!: Phaser.GameObjects.BitmapText;
-	private selectRect_4!: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
 	// Write your code here
 	heroType: HeroType
+	private selectedStageId: number;
+	private stages: ({ yPos: number; stageLevelName: string } | { yPos: number; stageLevelName: string } | {
+		yPos: number;
+		stageLevelName: string
+	})[];
+	selectTimeout: number = 0;
 	create(props) {
 		super.create(props);
 		this.heroType = props.heroType;
+		this.stages = [
+			{
+				stageLevelName: 'hokkaido',
+				yPos: 177
+			},
+			{
+				stageLevelName: 'akiba',
+				yPos: 311
+			}
+		];
+		this.selectedStageId = 0
 	}
+
 
 	update(time, dt) {
 		super.update(time, dt);
 
-		if (this.controls.up.isPressed) {
-			if (this.selectRect.y !== 118)
-				this.sound.play('sfxStart', {volume: 0.2});
-			this.selectRect.setPosition(239, 118);
+		if (this.controls.up.isPressed && this.selectTimeout === 0) {
+			if(this.selectedStageId > 0) {
+				this.selectTimeout = 1000;
+				this.time.delayedCall(500, () => {
+					this.selectTimeout = 0;
+				})
+				this.selectedStageId--;
+				if (this.selectRect.y !== this.stages[this.selectedStageId].yPos)
+					this.sound.play('sfxStart', {volume: 0.2});
+				this.selectRect.setPosition(239, this.stages[this.selectedStageId].yPos);
+			}
+
 		}
 
-		if (this.controls.down.isPressed) {
-			if (this.selectRect.y !== 220)
-				this.sound.play('sfxStart', {volume: 0.2});
-			this.selectRect.setPosition(239, 220);
+		if (this.controls.down.isPressed && this.selectTimeout === 0) {
+			if(this.selectedStageId < 2) {
+				this.selectTimeout = 1000;
+				this.time.delayedCall(500, () => {
+					this.selectTimeout = 0;
+				})
+				this.selectedStageId++;
+				if (this.selectRect.y !== this.stages[this.selectedStageId].yPos)
+					this.sound.play('sfxStart', {volume: 0.2});
+				this.selectRect.setPosition(239, this.stages[this.selectedStageId].yPos);
+			}
+
+
 		}
 
-		if (this.controls.jump.isPressed) {
+		if (this.controls.jump.isPressed && this.selectTimeout === 0) {
+
+			if(this.selectedStageId === 2) {
+				this.selectTimeout = 1000;
+				this.time.delayedCall(500, () => {
+					this.selectTimeout = 0;
+				})
+				this.sound.play('bop', {volume: 0.2});
+				return;
+			}
 			this.controls.stop();
 
 			this.sound.play('sfxStart', {volume: 0.2});
 			this.time.delayedCall(1000, () => {
-				fadeBetweenScenes(this.game, GameRouter.StageSelectScene.key, GameRouter.PlayScene.key, true, {heroType: this.heroType});
+				fadeBetweenScenes(this.game, GameRouter.StageSelectScene.key, GameRouter.PlayScene.key, true, { stageLevelName:this.stages[this.selectedStageId].stageLevelName, heroType: this.heroType});
 				this.gameManager.reset();
 			})
 		}

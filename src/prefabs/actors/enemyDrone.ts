@@ -13,9 +13,11 @@ import Actor from "../../common/Actors/Actor";
 import {Hit} from "../../common/Combat";
 import List = Phaser.Structs.List;
 import {MoveHorizontalAction} from "../../common/Actions/MoveHorizontalAction";
+import {choose} from "../../common/utils";
 /* END-USER-IMPORTS */
 
 export default class enemyDrone extends EnemyBase {
+
 
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
@@ -43,9 +45,39 @@ export default class enemyDrone extends EnemyBase {
 
 	// Write your code here.
 	boppable = false;
-
+	private isItem: boolean = false;
 	registerEnemyGroup() {
 
+		let scene = this.scene as baseStageScene;
+		if(scene.gameManager.energy < 5 && scene.itemCooldown === 0) {
+			this.isItem = Phaser.Math.RND.weightedPick([false, true])
+			if(this.isItem) {
+				scene.itemCooldown = 1000;
+				this.scene.time.delayedCall(300, () => {
+					scene.itemCooldown = 0;
+				});
+			}
+		}
+		if(this.isItem) {
+			(this.scene as baseStageScene).itemGroup.add(this);
+			if(scene.stageLevelName === 'hokkaido') {
+				this.setTexture('rootbeer');
+			}
+			if(scene.stageLevelName === 'akiba') {
+				this.setTexture('cimmaroll');
+			}
+			this.initCollision();
+			return;
+		}
+		if(scene.stageLevelName === 'hokkaido') {
+			this.setTexture('drone');
+			this.play('anim-drone-idle', true)
+		}
+
+		if(scene.stageLevelName === 'akiba') {
+			this.setTexture('crowey');
+			this.play('anim-crowey-idle', true)
+		}
 		super.registerEnemyGroup();
 
 		this.initCollision();
@@ -60,8 +92,6 @@ export default class enemyDrone extends EnemyBase {
 
 		this.animStateMachine = EnemyAnimStateMachine({name: 'enemy', context: this});
 		this.animStateMachine.setState('idle');
-		this.play('anim-drone-idle', true);
-
 	}
 
 	onGetAction(): Action {

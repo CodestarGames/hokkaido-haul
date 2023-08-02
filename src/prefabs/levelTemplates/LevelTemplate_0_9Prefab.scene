@@ -1,0 +1,142 @@
+{
+    "id": "d95be88d-5b2c-4905-ae44-0b9a1574f216",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "generateAwakeHandler": true,
+        "superClassName": "LevelTemplatePrefabBase",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1024,
+        "borderHeight": 416
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "b666c701-3aa7-49f4-b235-bb86163ed758",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "f0062471-c7e5-4062-86fe-ee985be374f1",
+                    "label": "boundsRect",
+                    "components": [],
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false,
+                    "strokeColor": "#d84a4a",
+                    "isStroked": true,
+                    "width": 1440,
+                    "height": 420
+                },
+                {
+                    "type": "TileSprite",
+                    "id": "305337d0-7113-472e-9b45-643bade726b4",
+                    "label": "roadTileSprite",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "road"
+                    },
+                    "y": 387.69590250651044,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 480,
+                    "height": 32
+                },
+                {
+                    "type": "TileSprite",
+                    "id": "c703db5e-017b-4862-b8d6-1ce423940185",
+                    "label": "roadTileSprite_1",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "road"
+                    },
+                    "x": 480,
+                    "y": 387.69590250651044,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 480,
+                    "height": 32
+                },
+                {
+                    "type": "TileSprite",
+                    "id": "92c799f9-d639-414f-97cb-2d5ee9f2bd74",
+                    "label": "roadTileSprite_3",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "road"
+                    },
+                    "x": 960,
+                    "y": 387.69590250651044,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 480,
+                    "height": 32
+                },
+                {
+                    "prefabId": "0c04277d-e39a-4193-ae95-a1864c7c63a5",
+                    "id": "d890fd06-148c-42df-8fd0-3acb0759a0fe",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "enemyPrefabCar_1",
+                    "components": [],
+                    "x": 491,
+                    "y": 387
+                },
+                {
+                    "prefabId": "0c04277d-e39a-4193-ae95-a1864c7c63a5",
+                    "id": "fa4b1853-2cbc-4ccc-9ecf-cfd80dd21fdc",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "enemyPrefabCar_2",
+                    "components": [],
+                    "x": 985,
+                    "y": 387
+                },
+                {
+                    "prefabId": "0c04277d-e39a-4193-ae95-a1864c7c63a5",
+                    "id": "98a0564d-6b4e-460f-9e88-c0f9dbb04070",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "enemyPrefabCar1",
+                    "components": [],
+                    "x": 1407,
+                    "y": 388
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "parentLayer",
+            "label": "Property 1",
+            "tooltip": "Property 1",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Layer"
+            }
+        }
+    ]
+}

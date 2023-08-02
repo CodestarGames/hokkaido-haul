@@ -42,7 +42,7 @@ export class EventType {
 
     /// An [Actor] was hurt.
     static hurt = new EventType("hurt");
-
+    static headBop = new EventType("headBop");
     static paintSplat = new EventType("paintSplat");
 
     static rope = new EventType("rope");

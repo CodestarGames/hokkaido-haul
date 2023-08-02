@@ -5,9 +5,9 @@ import {HeroType} from "./Actors/Hero/HeroType";
 import Hero from "./Actors/Hero/Hero";
 import {PointerDownAction} from "./Actions/PointerDownAction";
 import {addEffects} from "./Effect";
-import {IronmouseHeroType} from "./Actors/Hero/DefaultHeroType";
 import {CONST_BOUNCE_JUMP_VELOCITY} from "./Constants";
 import EnemyBase from "./Actors/Enemy/EnemyBase";
+import {EventType} from "./Event";
 
 
 export default abstract class baseStageScene extends SceneExtended {
@@ -24,6 +24,7 @@ export default abstract class baseStageScene extends SceneExtended {
 
     static key = 'MainScene';
     graphics: Phaser.GameObjects.Graphics;
+    itemCooldown: number = 0;
 
 
 
@@ -60,19 +61,22 @@ export default abstract class baseStageScene extends SceneExtended {
     templateBoundsGroup: Phaser.GameObjects.Group;
     pillarsGroup: Phaser.GameObjects.Group;
     enemyCollisionGroup: Phaser.Physics.Arcade.Group;
+    itemGroup: Phaser.Physics.Arcade.Group;
     raycaster: any;
     hero: Hero;
+    stageLevelName: string;
 
     preload() {
 
     }
 
-    create(data : { heroType: HeroType, stageKey: string }) {
+    create(data : { heroType: HeroType, stageKey: string, stageLevelName: string }) {
         super.create(data);
 
         if (this.game.config.physics.arcade.debug) {
             this.graphics = this.add.graphics();
         }
+        this.stageLevelName = data.stageLevelName;
 
         this.enemyPoolGroup = this.add.group({
             active: false
@@ -103,6 +107,7 @@ export default abstract class baseStageScene extends SceneExtended {
         this.staticPhysicsItemsGroup = this.physics.add.staticGroup();
         this.enemyCollisionGroup = this.physics.add.group({allowGravity: true, bounceX: 0, bounceY: 0 });
 
+        this.itemGroup = this.physics.add.group({allowGravity: false, bounceX: 0, bounceY: 0 });
 
         this.physics.add.collider(this.staticPhysicsItemsGroup, this.hero, (player:any, tileLayer: any) => {
 
@@ -121,6 +126,11 @@ export default abstract class baseStageScene extends SceneExtended {
 
                 player.body.setVelocityY(-CONST_BOUNCE_JUMP_VELOCITY);
                 this.sound.play('bop', {volume: 1});
+                (this.game as GameExtended).addEvent({
+                    type: EventType.headBop,
+                    scene: this,
+                    pos: enemy.getTopCenter()
+                });
                 if(enemy.damagable) {
                     (enemy as EnemyBase).takeDamage(null, 1, this.hero);
                 }
@@ -139,6 +149,37 @@ export default abstract class baseStageScene extends SceneExtended {
 
 
 
+
+        }, (player, enemy) => {
+            if(this.hero.animStateMachine.isCurrentState('hurt') || this.hero.animStateMachine.isCurrentState('pete-hurt') || this.hero.hitStun)
+                return false;
+
+            return true;
+        }, this);
+
+
+        this.physics.add.collider(this.itemGroup, this.hero, (player:any, item: any) => {
+
+            if(this.hero.animStateMachine.isCurrentState('hurt') || this.hero.animStateMachine.isCurrentState('pete-hurt') || player.hitStun)
+                return;
+
+            let pos = item.getTopCenter();
+            pos.y -= 16;
+            let itemName = this.stageLevelName === 'hokkaido' ? 'ROOTBEER' : 'CIMMAROLL';
+            if((this.game as GameExtended).gameManager.energy < 5) {
+                (this.game as GameExtended).addEvent({
+                    type: EventType.text,
+                    actor: item,
+                    element: null,
+                    pos,
+                    dir: null,
+                    options: {text: `+1 ${itemName}`}
+                });
+
+                (this.game as GameExtended).gameManager.energy += 1;
+            }
+
+            this.itemGroup.remove(item, true);
 
         }, (player, enemy) => {
             if(this.hero.animStateMachine.isCurrentState('hurt') || this.hero.animStateMachine.isCurrentState('pete-hurt') || this.hero.hitStun)

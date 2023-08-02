@@ -29,6 +29,10 @@ export const addEffects = (game: GameExtended,  event: Event) => {
         case EventType.hurt:
             game.effects.add(new AnimationEffect(event.actor.scene, 'impact', 'effect-impact', event.pos, {depth:10000000}));
             break;
+
+        case EventType.headBop:
+            game.effects.add(new AnimationEffect(event.scene, 'effect', 'anim-effect-punch', event.pos, {depth:10000000}));
+            break;
     }
 }
 

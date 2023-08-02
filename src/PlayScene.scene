@@ -20,7 +20,7 @@
             "scope": "PUBLIC",
             "components": [],
             "texture": {
-                "key": "mountain-bg"
+                "key": "city-bg"
             },
             "originX": 0,
             "originY": 0,
@@ -71,7 +71,7 @@
             "label": "hero",
             "components": [],
             "x": 96,
-            "y": 302
+            "y": 388
         },
         {
             "type": "Layer",

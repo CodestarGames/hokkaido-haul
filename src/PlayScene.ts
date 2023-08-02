@@ -24,6 +24,9 @@ import LevelTemplate_0_7Prefab from "./prefabs/levelTemplates/LevelTemplate_0_7P
 import LevelTemplate_0_6Prefab from "./prefabs/levelTemplates/LevelTemplate_0_6Prefab";
 import LevelTemplate_0_8Prefab from "./prefabs/levelTemplates/LevelTemplate_0_8Prefab";
 import LevelTemplate_0_9Prefab from "./prefabs/levelTemplates/LevelTemplate_0_9Prefab";
+import baseStageScene from "./common/BaseStageScene";
+import {GameRouter} from "./common/GameRouter";
+import {IronmouseHeroType} from "./common/Actors/Hero/DefaultHeroType";
 /* END-USER-IMPORTS */
 
 export default class PlayScene extends BaseStageScene {
@@ -53,7 +56,7 @@ export default class PlayScene extends BaseStageScene {
 		level_layer.add(levelTemplateInst);
 
 		// hero
-		const hero = new Hero(this, 96, 302);
+		const hero = new Hero(this, 96, 388);
 		this.add.existing(hero);
 
 		// speed_effect_layer
@@ -126,8 +129,10 @@ export default class PlayScene extends BaseStageScene {
 	private houses: Phaser.GameObjects.Group;
 	create(props) {
 		super.create(props);
-
-		this.sound.play('main-music', {loop: true, volume: 0.18});
+		let bgStr = this.stageLevelName === 'akiba' ? 'city' : 'mountain';
+		this.mountain_bg.setTexture(`${bgStr}-bg`);
+		let musicStr = this.stageLevelName === 'akiba' ? 'akiba-level' : 'main-music';
+		this.sound.play(musicStr, {loop: true, volume: 0.18});
 
 		let game = (this.game as GameExtended);
 		let playSceneBlackboard = {
@@ -143,23 +148,43 @@ export default class PlayScene extends BaseStageScene {
 		}
 
 		this.houses = this.add.group();
-		this.houses.addMultiple([
-			this.add.image(this.levelTemplateInst.roadTileSprite.getTopLeft().x - 40, this.levelTemplateInst.roadTileSprite.getTopLeft().y - 16, 'house-1').setOrigin(0, 1),
-			this.add.image(this.levelTemplateInst.roadTileSprite.getTopLeft().x + 0, this.levelTemplateInst.roadTileSprite.getTopLeft().y - 16, 'house-4').setOrigin(0, 1),
-			this.add.image(this.levelTemplateInst.roadTileSprite.getTopLeft().x + 80, this.levelTemplateInst.roadTileSprite.getTopLeft().y - 16, 'house-2').setOrigin(0, 1),
-			this.add.image(this.levelTemplateInst.roadTileSprite.getTopLeft().x + 220, this.levelTemplateInst.roadTileSprite.getTopLeft().y - 16, 'house-3').setOrigin(0, 1),
-			this.add.image(this.levelTemplateInst.roadTileSprite.getTopLeft().x + 420, this.levelTemplateInst.roadTileSprite.getTopLeft().y - 16, 'house-5').setOrigin(0, 1),
-			this.add.image(this.levelTemplateInst.roadTileSprite.getTopLeft().x + 80, this.levelTemplateInst.roadTileSprite.getTopLeft().y - 16, 'house-2').setOrigin(0, 1),
-		]);
 
-		this.houses.getChildren().forEach((child: any, index, ctx) => {
-			if(index > 0)
-				child.x = (ctx[index-1] as Phaser.GameObjects.Image).getBottomRight().x + 8;
-			this.bg_houses_layer.add(child);
-		})
+		let bldPrefix = this.stageLevelName === 'akiba' ? 'building' : 'house';
+
+		let first = this.add.image(16, this.levelTemplateInst.roadTileSprite.getTopLeft().y - 16, `${bldPrefix}-1`).setOrigin(0, 1)
+
+		let blds = [first];
+		this.bg_houses_layer.add(first);
+		let i = 0;
+		while(i < 8) {
+			let lastEnt = blds.reverse()[0];
+			let newHouse = this.add.image(lastEnt.getRightCenter().x + 4, lastEnt.getBottomRight().y, `${bldPrefix}-${Phaser.Math.RND.weightedPick([1,2,3,4])}`).setOrigin(0, 1)
+			blds.push(newHouse)
+			this.bg_houses_layer.add(newHouse);
+			i++;
+			console.log(newHouse.x);
+			if(newHouse.getTopLeft().x >= 480) break;
+		}
+
+		this.houses.addMultiple(blds);
 
 		this.bikesChris.play('anim-bikes-chris', true)
 		this.bikesConnor.play('anim-bikes-connor', true)
+		if(this.stageLevelName === 'akiba') {
+			this.bikesConnor.visible = false;
+			if(this.hero.heroType instanceof IronmouseHeroType) {
+				this.bikesChris.play('anim-player-van-idle');
+				this.bikesChris.y -= 20;
+			}
+			else {
+				this.bikesChris.play('anim-ironmouse-idle');
+				this.bikesChris.y -= 28;
+			}
+		}
+
+		this.hUDPanelPrefabInst.energyBlocks.forEach(item => {
+			item.setTexture(this.stageLevelName === 'akiba' ? 'cimmaroll-small' : 'rootbeer-small')
+		})
 
 	}
 
@@ -171,13 +196,27 @@ export default class PlayScene extends BaseStageScene {
 		if(this.gameManager.currentGameState === GAME_SCENE_STATE.GAME_SCROLL) {
 
 			Phaser.Actions.IncX(this.houses.getChildren(), -this.gameManager.gameSpeed);
-			Phaser.Actions.WrapInRectangle(this.houses.getChildren(), new Phaser.Geom.Rectangle(-160, 0, 480 + 160, 416))
+			//Phaser.Actions.WrapInRectangle(this.houses.getChildren(), new Phaser.Geom.Rectangle(-160, 0, 480 + 160, 416))
 
 			this.mountain_bg.scrollFactorX = 0;
 			this.mountain_bg.tilePositionX += .05 + (this.gameManager.gameSpeed * 0.05);
 
 			Phaser.Actions.IncX(this.templateBoundsGroup.getChildren(), -this.gameManager.gameSpeed);
 			Phaser.Actions.IncX(this.pillarsGroup.getChildren(), -this.gameManager.gameSpeed);
+
+			this.houses.getChildren().forEach((house: Phaser.GameObjects.Image, index: number, arr: any) => {
+				if (house.active && house.getRightCenter().x <= 0) {
+					this.houses.killAndHide(house);
+					this.houses.remove(house, true);
+					house.destroy(true);
+				}
+				let bldPrefix = this.stageLevelName === 'akiba' ? 'building' : 'house';
+				if(house.active && house.getRightCenter().x <= 480 && index === arr.length - 1) {
+					let newHouse = this.add.image(house.getRightCenter().x + 4, house.getBottomRight().y, `${bldPrefix}-${Phaser.Math.RND.weightedPick([1,2,3,4])}`).setOrigin(0, 1)
+					this.houses.add(newHouse)
+					this.bg_houses_layer.add(newHouse);
+				}
+				});
 
 			this.templateBoundsGroup.getChildren().forEach((boundsRect: Phaser.GameObjects.Rectangle) => {
 				if (boundsRect.active && boundsRect.getRightCenter().x <= 480) {

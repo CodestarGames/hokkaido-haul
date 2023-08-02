@@ -6,6 +6,7 @@ import GameCompleteScene from "../scenes/GameCompleteScene";
 import OpeningCredits from "../scenes/OpeningCredits";
 import CharacterSelectScene from "../scenes/CharacterSelectScene";
 import StageSelectScene from "../scenes/StageSelectScene";
+import EndScene from "../EndScene";
 
 export const GameRouter = {
     "ControllerScene": {
@@ -74,5 +75,13 @@ export const GameRouter = {
         stageBossMusicKey: "bossCambomb",
         key: 'OpeningCreditsScene',
         classConstructor: OpeningCredits
-    }
+    },
+    EndScene: {
+        title: "too much volcano",
+        stageMusicKey: 'cambombASO8BitMusic',
+        stageMusicKeyAlt: 'cambombASOAlt',
+        stageBossMusicKey: "bossCambomb",
+        key: 'EndScene',
+        classConstructor: EndScene
+    },
 }

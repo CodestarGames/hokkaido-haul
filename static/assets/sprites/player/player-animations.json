@@ -560,8 +560,7 @@
                     "keyframe": false
                 }
             ],
-            "frameRate": 28,
-            "skipMissedFrames": true
+            "frameRate": 28
         },
         {
             "key": "anim-pete-jump",
@@ -609,6 +608,74 @@
             "frameRate": 12,
             "skipMissedFrames": true,
             "repeat": -1
+        },
+        {
+            "key": "anim-donkey-connor",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "donkey-connor",
+                    "frame": 0,
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "donkey-connor",
+                    "frame": 1,
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 3,
+            "skipMissedFrames": true,
+            "repeat": -1
+        },
+        {
+            "key": "anim-crowey-idle",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "crowey",
+                    "frame": 0,
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "crowey",
+                    "frame": 1,
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 4,
+            "skipMissedFrames": true,
+            "repeat": -1
+        },
+        {
+            "key": "anim-garnt-idle",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "garnt",
+                    "frame": 0,
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "garnt",
+                    "frame": 1,
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "garnt",
+                    "frame": 2,
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 6,
+            "skipMissedFrames": true
         }
     ],
     "globalTimeScale": 1,

@@ -13,12 +13,13 @@ import Actor from "../../common/Actors/Actor";
 import {Hit} from "../../common/Combat";
 import List = Phaser.Structs.List;
 import {MoveHorizontalAction} from "../../common/Actions/MoveHorizontalAction";
+import {choose} from "../../common/utils";
 /* END-USER-IMPORTS */
 
 export default class enemyPrefab extends EnemyBase {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "bear", frame);
+		super(scene, x ?? 0, y ?? 0, texture || "donkey-connor", frame);
 
 		this.setOrigin(0.5, 1);
 		this.tintTopLeft = 16777215;
@@ -42,7 +43,49 @@ export default class enemyPrefab extends EnemyBase {
 	damagable = true;
 	// Write your code here.
 
+	isItem = false
+
 	registerEnemyGroup() {
+		let scene = this.scene as baseStageScene;
+		if(scene.gameManager.energy < 5 && scene.itemCooldown === 0) {
+			this.isItem = Phaser.Math.RND.weightedPick([true, false])
+			if(this.isItem) {
+				scene.itemCooldown = 1000;
+				this.scene.time.delayedCall(300, () => {
+					scene.itemCooldown = 0;
+				});
+			}
+		}
+		if(this.isItem) {
+			(this.scene as baseStageScene).itemGroup.add(this);
+			if(scene.stageLevelName === 'hokkaido') {
+				this.setTexture('rootbeer');
+			}
+			if(scene.stageLevelName === 'akiba') {
+				this.setTexture('cimmaroll');
+			}
+			this.initCollision();
+			return;
+		}
+		if(scene.stageLevelName === 'hokkaido') {
+			this.setTexture('bear');
+		}
+		if(scene.stageLevelName === 'akiba') {
+			let isGarnt = choose([false, true])
+			if(isGarnt) {
+				this.setTexture('garnt');
+				this.play('anim-garnt-idle', true)
+			}
+			else {
+				this.setTexture('donkey-connor');
+				this.play('anim-donkey-connor', true)
+			}
+		}
+		if(scene.stageLevelName === 'ranch') {
+			this.setTexture('donkey-connor');
+			this.play('anim-donkey-connor', true)
+		}
+
 		super.registerEnemyGroup();
 		this.initCollision();
 	}
@@ -56,6 +99,8 @@ export default class enemyPrefab extends EnemyBase {
 
 		this.animStateMachine = EnemyAnimStateMachine({name: 'enemy', context: this});
 		this.animStateMachine.setState('idle');
+
+
 
 	}
 

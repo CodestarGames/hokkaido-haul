@@ -7,6 +7,7 @@ import SceneExtended from "../common/SceneExtended";
 /* START-USER-IMPORTS */
 import {fadeBetweenScenes} from "../common/utils";
 import {GameRouter} from "../common/GameRouter";
+import {HeroType} from "../common/Actors/Hero/HeroType";
 /* END-USER-IMPORTS */
 
 export default class GameCompleteScene extends SceneExtended {
@@ -81,10 +82,13 @@ export default class GameCompleteScene extends SceneExtended {
 
 	// Write your code here
 	inputEnabled = false;
+	private heroType: HeroType;
+
 	create(props) {
 		super.create(props);
 		this.sound.play('game-complete-music', {loop: true, volume: 0.4});
 		this.finalScoreText.text = "Final Score: " + this.gameManager.score;
+		this.heroType = props.heroType;
 
 		this.time.delayedCall(2000, () => {
 			this.inputEnabled = true;
@@ -97,7 +101,7 @@ export default class GameCompleteScene extends SceneExtended {
 			this.inputEnabled = false;
 			this.sound.play('sfxStart', {volume: 0.2});
 			this.time.delayedCall(1000, () => {
-				fadeBetweenScenes(this.game, GameRouter.GameCompleteScene.key, GameRouter.TitleScene.key);
+				fadeBetweenScenes(this.game, GameRouter.GameCompleteScene.key, GameRouter.EndScene.key, true, {heroType: this.heroType});
 			})
 		}
 	}

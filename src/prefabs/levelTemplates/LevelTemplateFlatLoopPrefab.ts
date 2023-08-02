@@ -21,12 +21,12 @@ export default class LevelTemplateFlatLoopPrefab extends LevelTemplatePrefabBase
 		this.add(boundsRect);
 
 		// roadTileSprite
-		const roadTileSprite = scene.add.tileSprite(0, 387.69590250651044, 480, 32, "road");
+		const roadTileSprite = scene.add.tileSprite(0, 388, 484, 32, "road");
 		roadTileSprite.setOrigin(0, 0);
 		this.add(roadTileSprite);
 
 		// roadTileSprite_1
-		const roadTileSprite_1 = scene.add.tileSprite(480, 387.69590250651044, 480, 32, "road");
+		const roadTileSprite_1 = scene.add.tileSprite(480, 388, 484, 32, "road");
 		roadTileSprite_1.setOrigin(0, 0);
 		this.add(roadTileSprite_1);
 

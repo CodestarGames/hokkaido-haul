@@ -5,6 +5,8 @@
 
 import Phaser from "phaser";
 import PanelPrefab from "./PanelPrefab";
+import baseStageScene from "../../common/BaseStageScene";
+import {GameRouter} from "../../common/GameRouter";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 

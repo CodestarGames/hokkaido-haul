@@ -107,6 +107,7 @@ export default class GameManagerSingleton {
             scene.hUDPanelPrefabInst.energyBlocks[2].visible = (game.gameManager.energy >= 3);
             scene.hUDPanelPrefabInst.energyBlocks[3].visible = (game.gameManager.energy >= 4);
             scene.hUDPanelPrefabInst.energyBlocks[4].visible = (game.gameManager.energy >= 5);
+
         }
     }
 

@@ -106,53 +106,109 @@ export default function PlaySceneBtree(props) {
     function HandleCheerFromEnergy(props) {
         return (
             <Sequence {...props}>
-                <Selector exit={() => { game.gameManager.energy = 0; }}>
-                    <Sequence cond={() => Boolean(game.gameManager.energy === 0)}>
-                        <ActionPlayerStupidSpeak text={`You guys suck!`} />
-                        <ActionConnorSpeak text={`Worst cheer ever.`} />
-                        <ActionChrisSpeak text={`Last time I take him anywhere...`} />
-                        <FunctionCall fn={() => {  spawnText("-$10,000"); game.gameManager.score -= 10000 }} />
-                    </Sequence>
-                    <Sequence cond={() => Boolean(game.gameManager.energy === 1)}>
-                        <ActionPlayerStupidSpeak text={`Are you guys even trying?`} />
-                        <ActionConnorSpeak text={`You can do better than that.`} />
-                        <ActionChrisSpeak text={`How about you bike and I relax in the van?`} />
-                        <FunctionCall fn={() => {  spawnText("-$1,000"); game.gameManager.score -= 1000 }} />
-                    </Sequence>
-                    <Sequence cond={() => Boolean(game.gameManager.energy === 2)}>
-                        <ActionPlayerStupidSpeak text={`Go team!`} />
-                        <ActionConnorSpeak text={`That was mid.`} />
-                        <ActionChrisSpeak text={`Have you considered acting classes?`} />
-                        <FunctionCall fn={() => {  spawnText("+$10"); game.gameManager.score += 10 }} />
-                    </Sequence>
-                    <Sequence cond={() => Boolean(game.gameManager.energy === 3)}>
-                        <ActionPlayerSpeak text={`You guys rock!`} />
-                        <ActionConnorSpeak text={`Cheers.`} />
-                        <ActionChrisSpeak text={`Thanks Pete!`} />
-                        <FunctionCall fn={() => {  spawnText("+$100"); game.gameManager.score += 100 }} />
-                    </Sequence>
-                    <Sequence cond={() => Boolean(game.gameManager.energy === 4)}>
-                        <ActionPlayerSpeak text={`YOU GUYS ARE CRUSHING IT!`} />
-                        <ActionConnorSpeak text={`Let's GO!`} />
-                        <ActionChrisSpeak text={`Let's GO!`} />
-                        <FunctionCall fn={() => {  spawnText("+$1,000"); game.gameManager.score += 1000 }} />
-                    </Sequence>
-                    <Sequence cond={() => Boolean(game.gameManager.energy === 5)}>
-                        <Lotto>
-                            <Sequence>
-                                <ActionPlayerSpeak text={`BEERS ARE ON ME TONIGHT FELLAS!!`} />
-                                <ActionConnorSpeak text={`OH GOD, YES!!!!`} />
-                                <ActionChrisSpeak text={`Better get the fried chicken too!`} />
-                            </Sequence>
-                            <Sequence>
-                                <ActionPlayerSpeak text={`Legend has it there is a smoking hot babe at the end of this cycle...`} />
-                                <ActionConnorSpeak text={`Let's GO!!!!`} />
-                                <ActionChrisSpeak text={`Connor wait up!`} />
-                            </Sequence>
-                        </Lotto>
-                        <FunctionCall fn={() => { spawnText("+$10,000"); game.gameManager.score += 10000 }} />
-                    </Sequence>
+                <Selector>
+                    <Selector cond={() => scene.stageLevelName === 'hokkaido' } exit={() => { game.gameManager.energy = 0; }}>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 0)}>
+                            <ActionPlayerSpeak text={`Speech time!`} />
+                            <ActionPlayerStupidSpeak text={`You guys suck!`} />
+                            <ActionConnorSpeak text={`Worst speech ever.`} />
+                            <ActionChrisSpeak text={`Even worse, I'm agreeing with Connor.`} />
+                            <FunctionCall fn={() => {  spawnText("-$10,000"); game.gameManager.score -= 10000 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 1)}>
+                            <ActionPlayerSpeak text={`Speech time!`} />
+                            <ActionPlayerStupidSpeak text={`Are you guys even trying?`} />
+                            <ActionConnorSpeak text={`You can do better than that.`} />
+                            <ActionChrisSpeak text={`How about you bike and I relax in the vehicle?`} />
+                            <FunctionCall fn={() => {  spawnText("-$1,000"); game.gameManager.score -= 1000 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 2)}>
+                            <ActionPlayerSpeak text={`Speech time!`} />
+                            <ActionPlayerStupidSpeak text={`Go team!`} />
+                            <ActionConnorSpeak text={`That was mid.`} />
+                            <ActionChrisSpeak text={`Have you considered acting classes?`} />
+                            <FunctionCall fn={() => {  spawnText("+$10"); game.gameManager.score += 10 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 3)}>
+                            <ActionPlayerSpeak text={`Speech time!`} />
+                            <ActionPlayerSpeak text={`You guys rock!`} />
+                            <ActionConnorSpeak text={`Cheers.`} />
+                            <ActionChrisSpeak text={`I'd rather be reading my book.`} />
+                            <FunctionCall fn={() => {  spawnText("+$100"); game.gameManager.score += 100 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 4)}>
+                            <ActionPlayerSpeak text={`Speech time!`} />
+                            <ActionPlayerSpeak text={`YOU GUYS ARE CRUSHING IT!`} />
+                            <ActionConnorSpeak text={`Let's GO!`} />
+                            <ActionChrisSpeak text={`I can see the combini!`} />
+                            <FunctionCall fn={() => {  spawnText("+$1,000"); game.gameManager.score += 1000 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 5)}>
+                            <ActionPlayerSpeak text={`Speech time!`} />
+                            <Lotto>
+                                <Sequence>
+                                    <ActionPlayerSpeak text={`It's almost dinner time!!`} />
+                                    <ActionConnorSpeak text={`OH GOD, YES!!!!`} />
+                                    <ActionChrisSpeak text={`Better be fried chicken...`} />
+                                </Sequence>
+                                <Sequence>
+                                    <ActionPlayerSpeak text={`Legend has it there is a smoking hot onsen at the end of this cycle...`} />
+                                    <ActionConnorSpeak text={`Let's GO!!!!`} />
+                                    <ActionChrisSpeak text={`Connor wait up!`} />
+                                </Sequence>
+                            </Lotto>
+                            <FunctionCall fn={() => { spawnText("+$10,000"); game.gameManager.score += 10000 }} />
+                        </Sequence>
+                    </Selector>
+                    <Selector cond={() => scene.stageLevelName === 'akiba' } exit={() => { game.gameManager.energy = 0; }}>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 0)}>
+                            <ActionPlayerStupidSpeak text={`You guys suck!`} />
+                            <ActionConnorSpeak text={`Worst cheer ever.`} />
+                            <ActionChrisSpeak text={`Last time I take them anywhere...`} />
+                            <FunctionCall fn={() => {  spawnText("-$10,000"); game.gameManager.score -= 10000 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 1)}>
+                            <ActionPlayerStupidSpeak text={`Are you guys even trying?`} />
+                            <ActionConnorSpeak text={`You can do better than that.`} />
+                            <ActionChrisSpeak text={`How about you bike and I relax in the vehicle?`} />
+                            <FunctionCall fn={() => {  spawnText("-$1,000"); game.gameManager.score -= 1000 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 2)}>
+                            <ActionPlayerStupidSpeak text={`Go team!`} />
+                            <ActionConnorSpeak text={`That was mid.`} />
+                            <ActionChrisSpeak text={`Have you considered acting classes?`} />
+                            <FunctionCall fn={() => {  spawnText("+$10"); game.gameManager.score += 10 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 3)}>
+                            <ActionPlayerSpeak text={`You guys rock!`} />
+                            <ActionConnorSpeak text={`Cheers.`} />
+                            <ActionChrisSpeak text={`I'd rather be reading my book.`} />
+                            <FunctionCall fn={() => {  spawnText("+$100"); game.gameManager.score += 100 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 4)}>
+                            <ActionPlayerSpeak text={`YOU GUYS ARE CRUSHING IT!`} />
+                            <ActionConnorSpeak text={`Let's GO!`} />
+                            <ActionChrisSpeak text={`I can see the combini!`} />
+                            <FunctionCall fn={() => {  spawnText("+$1,000"); game.gameManager.score += 1000 }} />
+                        </Sequence>
+                        <Sequence cond={() => Boolean(game.gameManager.energy === 5)}>
+                            <Lotto>
+                                <Sequence>
+                                    <ActionPlayerSpeak text={`It's almost dinner time!`} />
+                                    <ActionConnorSpeak text={`OH GOD, YES!!!!`} />
+                                    <ActionChrisSpeak text={`Better be fried chicken!`} />
+                                </Sequence>
+                                <Sequence>
+                                    <ActionPlayerSpeak text={`Legend has it there is a smoking hot onsen at the end of this cycle...`} />
+                                    <ActionConnorSpeak text={`Let's GO!!!!`} />
+                                    <ActionChrisSpeak text={`Connor wait up!`} />
+                                </Sequence>
+                            </Lotto>
+                            <FunctionCall fn={() => { spawnText("+$10,000"); game.gameManager.score += 10000 }} />
+                        </Sequence>
+                    </Selector>
                 </Selector>
+
                 <ActionCloseDialog />
                 <ActionTween waitForCompletion={true} tweenConfig={() => ({
                     targets: scene.bikes,
@@ -170,12 +226,16 @@ export default function PlaySceneBtree(props) {
             scene.enemyCollisionGroup.killAndHide(obstacle);
             obstacle.destroy();
         })
-
+        scene.itemGroup.getChildren().forEach((item: any) => {
+            scene.itemGroup.killAndHide(item);
+            item.destroy();
+        })
         scene.staticPhysicsItemsGroup.getChildren().forEach((obstacle: any) => {
             scene.staticPhysicsItemsGroup.killAndHide(obstacle);
             obstacle.destroy();
         })
         scene.enemyCollisionGroup.clear(true, true);
+        scene.itemGroup.clear(true, true);
         scene.staticPhysicsItemsGroup.clear(true, true);
         scene.templateBoundsGroup.clear(true, true);
         scene.pillarsGroup.clear(true, true);
@@ -188,10 +248,9 @@ export default function PlaySceneBtree(props) {
     }
 
 
-    function HandleCutSceneSetup(props) {
+    function HandleAfterBurnerSequence(props) {
         return (
-            <Sequence {...props}>
-                <FunctionCall fn={() => {game.gameManager.distance += 1} }/>
+            <Sequence {...props} entry={() => { hero.jumpStep = 0; } } >
                 <ActionDisableControls />
                 <Sequence step={() => { scene.warpTileSprite.tilePositionX += 32; }}>
                     <FunctionCall fn={() => {
@@ -216,7 +275,16 @@ export default function PlaySceneBtree(props) {
                     scene.physics.world.enableBody(hero);
                     //getHeroBody().setAllowGravity(true);
                 }}/>
+            </Sequence>
+        )
+    }
 
+
+    function HandleCutSceneSetup(props) {
+        return (
+            <Sequence {...props}>
+                <FunctionCall fn={() => {game.gameManager.distance += 1} }/>
+                <HandleAfterBurnerSequence />
                 <Parallel>
                     <ActionPlayerSpeak text={'Hey guys!'} />
                     <ActionTween waitForCompletion={true} tweenConfig={() => ({
@@ -272,7 +340,7 @@ export default function PlaySceneBtree(props) {
                 <Wait duration={6000} />
                 <FunctionCall fn={() => {
                     scene.controls.start();
-                    fadeBetweenScenes(game, GameRouter.PlayScene.key, GameRouter.GameCompleteScene.key);
+                    fadeBetweenScenes(game, GameRouter.PlayScene.key, GameRouter.GameCompleteScene.key, true, { heroType: hero.heroType });
                     scene.BTreeManager.removeTree(scene.BTree);
                 }}/>
             </Sequence>
@@ -280,66 +348,66 @@ export default function PlaySceneBtree(props) {
     }
 
 
-    function HandleMouseIntroSequence(props) {
-        return (
-            <Sequence {...props} cond={() => game.gameManager.distance >= 99.9 }>
-                <ActionDisableControls />
-                <Sequence step={() => { scene.warpTileSprite.tilePositionX += 32; }}>
-                    <FunctionCall fn={() => {
-                        scene.sound.play('sfxAfterBurner', {volume: 0.2});
-                        hero.angle = 0;
-                        scene.speed_effect_layer.visible = true;
-                        //getHeroBody().setAllowGravity(false);
-                        scene.physics.world.disableBody(getHeroBody());
-                        resetSceneTemplatesToLoop()
-                    }}/>
-                    <FunctionCall fn={() => { game.gameManager.setTemplateGenType(TEMPLATE_GEN_TYPE.LOOPING_FLAT) }}/>
-                    <ActionTween waitForCompletion={true} tweenConfig={() => ({
-                        targets: [hero],
-                        x: 96,
-                        y: 376,
-                        duration: 1000
-                    })} />
-                    <Wait duration={3000} />
-                </Sequence>
-                <FunctionCall fn={() => {
-                    scene.speed_effect_layer.visible = false;
-                    scene.physics.world.enableBody(hero);
-                    //getHeroBody().setAllowGravity(true);
-                }}/>
-                <Parallel>
-                    <ActionPlayerSpeak text={`We're almost there boys!`} />
-                    <ActionTween waitForCompletion={true} tweenConfig={() => ({
-                        targets: scene.bikes,
-                        x: "-=360",
-                        duration: 2000
-                    })} />
-                </Parallel>
-
-                <ActionChrisSpeak text={`ACK! My back!`}/>
-                <ActionTween waitForCompletion={true} tweenConfig={() => ({
-                    targets: scene.bikesChris,
-                    x: "-=480",
-                    duration: 2000
-                })} />
-                <ActionConnorSpeak text={`Hey! Get back here! We have to finish this together!`} />
-                <ActionQuestionSpeak text={`THERE YOU ARE!`} />
-                <Wait duration={3000} />
-                <ActionMouseSpeak text={`I've been looking everywhere for you Monke! We've got a stream to do!`}/>
-                <ActionConnorSpeak text={`I'm kinda of busy mouse, can't it wait?`} />
-                <ActionMouseSpeak text={`No! We're already late! Now come on! We've got no time to argue!`}/>
-                <Wait duration={3000} />
-                <ActionPlayerSpeak text={`Hey! We need him to finish the Cycle!`} />
-                <ActionMouseKekSpeak text={'Can it premier dork!'}/>
-                <Wait duration={3000} />
-                <ActionMouseSpeak text={`Ahahahahaha!`}/>
-                <ActionCloseDialog />
-                <ActionEnableControls exit={() => {
-                    game.gameManager.setTemplateGenType(TEMPLATE_GEN_TYPE.RANDOM_0);
-                }}/>
-            </Sequence>
-        )
-    }
+    // function HandleMouseIntroSequence(props) {
+    //     return (
+    //         <Sequence {...props} cond={() => game.gameManager.distance >= 99.9 }>
+    //             <ActionDisableControls />
+    //             <Sequence step={() => { scene.warpTileSprite.tilePositionX += 32; }}>
+    //                 <FunctionCall fn={() => {
+    //                     scene.sound.play('sfxAfterBurner', {volume: 0.2});
+    //                     hero.angle = 0;
+    //                     scene.speed_effect_layer.visible = true;
+    //                     //getHeroBody().setAllowGravity(false);
+    //                     scene.physics.world.disableBody(getHeroBody());
+    //                     resetSceneTemplatesToLoop()
+    //                 }}/>
+    //                 <FunctionCall fn={() => { game.gameManager.setTemplateGenType(TEMPLATE_GEN_TYPE.LOOPING_FLAT) }}/>
+    //                 <ActionTween waitForCompletion={true} tweenConfig={() => ({
+    //                     targets: [hero],
+    //                     x: 96,
+    //                     y: 376,
+    //                     duration: 1000
+    //                 })} />
+    //                 <Wait duration={3000} />
+    //             </Sequence>
+    //             <FunctionCall fn={() => {
+    //                 scene.speed_effect_layer.visible = false;
+    //                 scene.physics.world.enableBody(hero);
+    //                 //getHeroBody().setAllowGravity(true);
+    //             }}/>
+    //             <Parallel>
+    //                 <ActionPlayerSpeak text={`We're almost there boys!`} />
+    //                 <ActionTween waitForCompletion={true} tweenConfig={() => ({
+    //                     targets: scene.bikes,
+    //                     x: "-=360",
+    //                     duration: 2000
+    //                 })} />
+    //             </Parallel>
+    //
+    //             <ActionChrisSpeak text={`ACK! My back!`}/>
+    //             <ActionTween waitForCompletion={true} tweenConfig={() => ({
+    //                 targets: scene.bikesChris,
+    //                 x: "-=480",
+    //                 duration: 2000
+    //             })} />
+    //             <ActionConnorSpeak text={`Hey! Get back here! We have to finish this together!`} />
+    //             <ActionQuestionSpeak text={`THERE YOU ARE!`} />
+    //             <Wait duration={3000} />
+    //             <ActionMouseSpeak text={`I've been looking everywhere for you Monke! We've got a stream to do!`}/>
+    //             <ActionConnorSpeak text={`I'm kinda of busy mouse, can't it wait?`} />
+    //             <ActionMouseSpeak text={`No! We're already late! Now come on! We've got no time to argue!`}/>
+    //             <Wait duration={3000} />
+    //             <ActionPlayerSpeak text={`Hey! We need him to finish the Cycle!`} />
+    //             <ActionMouseKekSpeak text={'Can it premier dork!'}/>
+    //             <Wait duration={3000} />
+    //             <ActionMouseSpeak text={`Ahahahahaha!`}/>
+    //             <ActionCloseDialog />
+    //             <ActionEnableControls exit={() => {
+    //                 game.gameManager.setTemplateGenType(TEMPLATE_GEN_TYPE.RANDOM_0);
+    //             }}/>
+    //         </Sequence>
+    //     )
+    // }
 
     function HandleDeathSequence(props) {
         return (

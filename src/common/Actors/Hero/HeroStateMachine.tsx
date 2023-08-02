@@ -96,6 +96,7 @@ export function HeroStateMachine(props) {
         .addState('dash', {
             onEnter() {
                 hero.angle = 0;
+                scene.sound.play("sfx-van-dash", {volume: 0.4})
                 if(hero.hitStun === false)
                     hero.play(hero.getFormattedAnimName('idle'), true);
                 scene.time.delayedCall(350, () => {

@@ -69,23 +69,21 @@ export default abstract class Actor extends Phaser.GameObjects.Sprite {
 
     //return if defender dies
     takeDamage(action: Action, damage: number, attacker: Actor) {
-
+        let scene  = this.scene as baseStageScene;
         this.health -= damage;
 
-        if(this.game.gameManager.energy < 5) {
-            let pos = this.getTopCenter();
-            pos.y -= 16;
-            this.game.addEvent({
-                type: EventType.text,
-                actor: this,
-                element: null,
-                pos,
-                dir: null,
-                options: {text: "+1 HYPE"}
-            });
+        let pos = this.getTopCenter();
+        pos.y -= 16;
+        this.game.addEvent({
+            type: EventType.text,
+            actor: this,
+            element: null,
+            pos,
+            dir: null,
+            options: {text: "+$1000"}
+        });
 
-            this.game.gameManager.energy += 1;
-        }
+        this.game.gameManager.score += 1000;
 
         if(this.health <= 0)
             this.isAlive = false;

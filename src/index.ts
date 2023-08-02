@@ -33,7 +33,7 @@ window.addEventListener('load', function () {
             width: 640,
             height: 576,
         },
-        roundPixels: false,
+        roundPixels: true,
         pixelArt: true,
         input: {
             gamepad: true
@@ -67,7 +67,7 @@ window.addEventListener('load', function () {
         physics: {
             default: 'arcade',
             arcade: {
-                debug: true,
+                //debug: true,
                 gravity: {y: 2000}
             }
         },

@@ -3,10 +3,17 @@
         "files": [
             {
                 "url": [
-                    "assets/sfx/akiba-adventure-music.ogg"
+                    "assets/sfx/akiba-level.mp3"
                 ],
                 "type": "audio",
-                "key": "akiba-adventure-music"
+                "key": "akiba-level"
+            },
+            {
+                "url": [
+                    "assets/sfx/akiba-level-music.ogg"
+                ],
+                "type": "audio",
+                "key": "akiba-level-music"
             },
             {
                 "url": "assets/sprites/ui/avatars.png",
@@ -47,6 +54,26 @@
                 "key": "bop"
             },
             {
+                "url": "assets/sprites/bg/building-1.png",
+                "type": "image",
+                "key": "building-1"
+            },
+            {
+                "url": "assets/sprites/bg/building-2.png",
+                "type": "image",
+                "key": "building-2"
+            },
+            {
+                "url": "assets/sprites/bg/building-3.png",
+                "type": "image",
+                "key": "building-3"
+            },
+            {
+                "url": "assets/sprites/bg/building-4.png",
+                "type": "image",
+                "key": "building-4"
+            },
+            {
                 "url": "assets/sprites/obstacles/car1.png",
                 "frameConfig": {
                     "frameWidth": 80,
@@ -80,11 +107,52 @@
                 "key": "character-select-music"
             },
             {
+                "url": "assets/sprites/etc/cimmaroll.png",
+                "type": "image",
+                "key": "cimmaroll"
+            },
+            {
+                "url": "assets/sprites/etc/cimmaroll-small.png",
+                "type": "image",
+                "key": "cimmaroll-small"
+            },
+            {
+                "url": "assets/sprites/bg/city-bg.png",
+                "type": "image",
+                "key": "city-bg"
+            },
+            {
+                "url": "assets/sprites/obstacles/crowey.png",
+                "frameConfig": {
+                    "frameWidth": 35,
+                    "frameHeight": 38,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "crowey"
+            },
+            {
                 "url": [
                     "assets/sfx/death-fall.mp3"
                 ],
                 "type": "audio",
                 "key": "death-fall"
+            },
+            {
+                "url": "assets/sprites/obstacles/donkey-connor.png",
+                "frameConfig": {
+                    "frameWidth": 50,
+                    "frameHeight": 39,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "donkey-connor"
             },
             {
                 "url": [
@@ -96,8 +164,8 @@
             {
                 "url": "assets/sprites/obstacles/drone.png",
                 "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 16,
+                    "frameWidth": 34,
+                    "frameHeight": 18,
                     "startFrame": 0,
                     "endFrame": -1,
                     "spacing": 0,
@@ -132,6 +200,19 @@
                 ],
                 "type": "audio",
                 "key": "game-over-music"
+            },
+            {
+                "url": "assets/sprites/obstacles/garnt.png",
+                "frameConfig": {
+                    "frameWidth": 34,
+                    "frameHeight": 54,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "garnt"
             },
             {
                 "url": "assets/sprites/bg/house-1.png",
@@ -254,6 +335,18 @@
                 "key": "PremierTendo"
             },
             {
+                "url": "assets/sprites/bg/ram-bg.png",
+                "type": "image",
+                "key": "ram-bg"
+            },
+            {
+                "url": [
+                    "assets/sfx/ram-ranch.mp3"
+                ],
+                "type": "audio",
+                "key": "ram-ranch-music"
+            },
+            {
                 "url": "assets/sprites/bg/road.png",
                 "type": "image",
                 "key": "road"
@@ -267,6 +360,13 @@
                 "url": "assets/sprites/etc/rootbeer-small.png",
                 "type": "image",
                 "key": "rootbeer-small"
+            },
+            {
+                "url": [
+                    "assets/sfx/sfx-van-dash.wav"
+                ],
+                "type": "audio",
+                "key": "sfx-van-dash"
             },
             {
                 "url": [
