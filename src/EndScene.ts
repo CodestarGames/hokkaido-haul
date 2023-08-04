@@ -221,11 +221,13 @@ export default class EndScene extends BaseStageScene {
 
 	}
 
-	update(time, dt) {
-		super.update(time, dt);
+
+	onUpdate(dt) {
+		super.onUpdate(dt);
 
 		this.moveLevel();
 	}
+
 
 	onDestroy(scene) {
 

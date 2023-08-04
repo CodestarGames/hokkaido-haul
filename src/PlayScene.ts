@@ -127,8 +127,11 @@ export default class PlayScene extends BaseStageScene {
 
 	// Write your code here
 	private houses: Phaser.GameObjects.Group;
+	dist: number;
 	create(props) {
 		super.create(props);
+		this.dist = props.dist;
+
 		let bgStr = this.stageLevelName === 'akiba' ? 'city' : 'mountain';
 		this.mountain_bg.setTexture(`${bgStr}-bg`);
 		let musicStr = this.stageLevelName === 'akiba' ? 'akiba-level' : 'main-music';
@@ -286,8 +289,8 @@ export default class PlayScene extends BaseStageScene {
 
 	}
 
-	update(time, dt) {
-		super.update(time, dt);
+	onUpdate(dt) {
+		super.onUpdate(dt);
 
 		this.moveLevel();
 	}

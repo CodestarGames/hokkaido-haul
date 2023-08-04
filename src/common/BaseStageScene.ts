@@ -9,7 +9,7 @@ import {CONST_BOUNCE_JUMP_VELOCITY} from "./Constants";
 import EnemyBase from "./Actors/Enemy/EnemyBase";
 import {EventType} from "./Event";
 
-
+let accumulator = 0;
 export default abstract class baseStageScene extends SceneExtended {
 
     mapGraphics: Phaser.GameObjects.Graphics;
@@ -175,7 +175,7 @@ export default abstract class baseStageScene extends SceneExtended {
                     dir: null,
                     options: {text: `+1 ${itemName}`}
                 });
-
+                this.sound.play('sfx-get', {volume: 0.2});
                 (this.game as GameExtended).gameManager.energy += 1;
             }
 
@@ -197,8 +197,7 @@ export default abstract class baseStageScene extends SceneExtended {
 
     }
 
-    update(time, dt) {
-        super.update(time, dt);
+    onUpdate(dt) {
         //update the behavior tree manager's internal timer.
         this.BTreeManager.update(dt);
 
@@ -212,6 +211,18 @@ export default abstract class baseStageScene extends SceneExtended {
         }
 
         this.hero?.animStateMachine?.update();
+    }
+
+    update(time, dt) {
+        accumulator += dt;
+        while(accumulator >= 16.66) {
+
+            accumulator -= 16.66;
+            super.update(time, dt);
+            this.onUpdate(dt)
+
+        }
+
 
     }
 

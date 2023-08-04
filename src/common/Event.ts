@@ -7,7 +7,7 @@ export interface AddEventParams {
     actor?: Actor;
     scene?: Phaser.Scene;
     element?: Element;
-    pos?: Phaser.Math.Vector2;
+    pos?: any;
     dir?: Phaser.Math.Vector2;
     options?: any;
 }
@@ -17,7 +17,7 @@ export class Event {
     actor: Actor;
     element: Element;
     options: any;
-    pos: Vector2;
+    pos: any;
     dir: Vector2;
     scene: Phaser.Scene;
 

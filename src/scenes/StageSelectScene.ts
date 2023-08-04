@@ -180,7 +180,7 @@ export default class StageSelectScene extends SceneExtended {
 				})
 				this.selectedStageId--;
 				if (this.selectRect.y !== this.stages[this.selectedStageId].yPos)
-					this.sound.play('sfxStart', {volume: 0.2});
+					this.sound.play('sfx-select', {volume: 0.4});
 				this.selectRect.setPosition(239, this.stages[this.selectedStageId].yPos);
 			}
 
@@ -194,7 +194,7 @@ export default class StageSelectScene extends SceneExtended {
 				})
 				this.selectedStageId++;
 				if (this.selectRect.y !== this.stages[this.selectedStageId].yPos)
-					this.sound.play('sfxStart', {volume: 0.2});
+					this.sound.play('sfx-select', {volume: 0.4});
 				this.selectRect.setPosition(239, this.stages[this.selectedStageId].yPos);
 			}
 
@@ -215,7 +215,7 @@ export default class StageSelectScene extends SceneExtended {
 
 			this.sound.play('sfxStart', {volume: 0.2});
 			this.time.delayedCall(1000, () => {
-				fadeBetweenScenes(this.game, GameRouter.StageSelectScene.key, GameRouter.PlayScene.key, true, { stageLevelName:this.stages[this.selectedStageId].stageLevelName, heroType: this.heroType});
+				fadeBetweenScenes(this.game, GameRouter.StageSelectScene.key, GameRouter.SelectDifficultyScene.key, true, { stageLevelName:this.stages[this.selectedStageId].stageLevelName, heroType: this.heroType});
 				this.gameManager.reset();
 			})
 		}

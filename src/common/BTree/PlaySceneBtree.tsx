@@ -41,7 +41,7 @@ export default function PlaySceneBtree(props) {
     let incGameScore = () => {
         game.gameManager.score+= (10)// + (10 / game.gameManager.gameSpeed);
         scene.hUDPanelPrefabInst.scoreText.text = "Donations:$" + game.gameManager.score.toFixed(0);
-        scene.hUDPanelPrefabInst.kMText.text = "Distance:" + game.gameManager.distance.toFixed(1) + "km/250";
+        scene.hUDPanelPrefabInst.kMText.text = "Distance:" + game.gameManager.distance.toFixed(1) + `km/${scene.dist}`;
         GameManagerSingleton.updateHud(game);
     }
 
@@ -111,15 +111,32 @@ export default function PlaySceneBtree(props) {
                         <Sequence cond={() => Boolean(game.gameManager.energy === 0)}>
                             <ActionPlayerSpeak text={`Speech time!`} />
                             <ActionPlayerStupidSpeak text={`You guys suck!`} />
-                            <ActionConnorSpeak text={`Worst speech ever.`} />
-                            <ActionChrisSpeak text={`Even worse, I'm agreeing with Connor.`} />
+                            <Lotto>
+                                <ActionConnorSpeak text={`Worst speech ever.`} />
+                                <ActionConnorSpeak text={`Viewer numbers are dropping. Is this a PremierTwo stream?`} />
+                                <ActionConnorSpeak text={`Nobody is going to donate at this rate.`} />
+                                <ActionConnorSpeak text={`Excuse me while I drive myself into a ditch.`} />
+                            </Lotto>
+                            <Lotto>
+                                <ActionChrisSpeak text={`Never thought I'd be agreeing with Connor.`} />
+                                <ActionChrisSpeak text={`What is this? A youtube comments section?`} />
+                                <ActionChrisSpeak text={`You try biking behind the worlds slowest Welshman!`} />
+                            </Lotto>
                             <FunctionCall fn={() => {  spawnText("-$10,000"); game.gameManager.score -= 10000 }} />
                         </Sequence>
                         <Sequence cond={() => Boolean(game.gameManager.energy === 1)}>
                             <ActionPlayerSpeak text={`Speech time!`} />
                             <ActionPlayerStupidSpeak text={`Are you guys even trying?`} />
-                            <ActionConnorSpeak text={`You can do better than that.`} />
-                            <ActionChrisSpeak text={`How about you bike and I relax in the vehicle?`} />
+                            <Lotto>
+                                <ActionConnorSpeak text={`I've heard worse from my Twitch chat.`} />
+                                <ActionConnorSpeak text={`How about we switch vehicles and you try this?`} />
+                                <ActionConnorSpeak text={`I'm trying not to throw this camera at you.`} />
+                            </Lotto>
+                            <Lotto>
+                                <ActionChrisSpeak text={`How about you bike and I relax in the vehicle?`} />
+                                <ActionChrisSpeak text={`How about you be useful and try to find the nearest combini?`} />
+                                <ActionChrisSpeak text={`*pant* *pant* *wheeeeeze*`} />
+                            </Lotto>
                             <FunctionCall fn={() => {  spawnText("-$1,000"); game.gameManager.score -= 1000 }} />
                         </Sequence>
                         <Sequence cond={() => Boolean(game.gameManager.energy === 2)}>
@@ -140,7 +157,7 @@ export default function PlaySceneBtree(props) {
                             <ActionPlayerSpeak text={`Speech time!`} />
                             <ActionPlayerSpeak text={`YOU GUYS ARE CRUSHING IT!`} />
                             <ActionConnorSpeak text={`Let's GO!`} />
-                            <ActionChrisSpeak text={`I can see the combini!`} />
+                            <ActionChrisSpeak text={`I can see the combini in the distance!`} />
                             <FunctionCall fn={() => {  spawnText("+$1,000"); game.gameManager.score += 1000 }} />
                         </Sequence>
                         <Sequence cond={() => Boolean(game.gameManager.energy === 5)}>
@@ -148,7 +165,7 @@ export default function PlaySceneBtree(props) {
                             <Lotto>
                                 <Sequence>
                                     <ActionPlayerSpeak text={`It's almost dinner time!!`} />
-                                    <ActionConnorSpeak text={`OH GOD, YES!!!!`} />
+                                    <ActionConnorSpeak text={`Oh GOD, YES!!!!`} />
                                     <ActionChrisSpeak text={`Better be fried chicken...`} />
                                 </Sequence>
                                 <Sequence>
@@ -162,47 +179,56 @@ export default function PlaySceneBtree(props) {
                     </Selector>
                     <Selector cond={() => scene.stageLevelName === 'akiba' } exit={() => { game.gameManager.energy = 0; }}>
                         <Sequence cond={() => Boolean(game.gameManager.energy === 0)}>
-                            <ActionPlayerStupidSpeak text={`You guys suck!`} />
-                            <ActionConnorSpeak text={`Worst cheer ever.`} />
-                            <ActionChrisSpeak text={`Last time I take them anywhere...`} />
+                            <ActionPlayerStupidSpeak text={`We didn't get any cimmarolls!`} />
+                            <Lotto>
+                                <ActionOppositeStupidSpeak text={`Chat's not gonna be happy about that...`} />
+                                <ActionOppositeStupidSpeak text={`Time to knock some heads!!`} />
+                                <ActionOppositeStupidSpeak text={`Viewer numbers are plummeting! Is this a PremierTwo stream?`} />
+                                <ActionOppositeStupidSpeak text={`I'm gonna bop crowey the anime bird right in his beak!!`} />
+                                <ActionOppositeStupidSpeak text={`I'm about to take out the trash!`} />
+                                <ActionOppositeStupidSpeak text={`I'm gonna bop Donkey Connor on his fat head!`} />
+                            </Lotto>
                             <FunctionCall fn={() => {  spawnText("-$10,000"); game.gameManager.score -= 10000 }} />
                         </Sequence>
                         <Sequence cond={() => Boolean(game.gameManager.energy === 1)}>
-                            <ActionPlayerStupidSpeak text={`Are you guys even trying?`} />
-                            <ActionConnorSpeak text={`You can do better than that.`} />
-                            <ActionChrisSpeak text={`How about you bike and I relax in the vehicle?`} />
+                            <ActionPlayerStupidSpeak text={`We got one cimmaroll!`} />
+                            <Lotto>
+                                <ActionOppositeStupidSpeak text={`We need more than that! Viewer numbers are plummeting!`} />
+                                <ActionOppositeStupidSpeak text={`Time to bring out the big guns!`} />
+                                <ActionOppositeStupidSpeak text={`Let's get more from those trashy twerps!`} />
+                            </Lotto>
                             <FunctionCall fn={() => {  spawnText("-$1,000"); game.gameManager.score -= 1000 }} />
                         </Sequence>
                         <Sequence cond={() => Boolean(game.gameManager.energy === 2)}>
-                            <ActionPlayerStupidSpeak text={`Go team!`} />
-                            <ActionConnorSpeak text={`That was mid.`} />
-                            <ActionChrisSpeak text={`Have you considered acting classes?`} />
+                            <ActionPlayerStupidSpeak text={`We got two cimmarolls!`} />
+                            <Lotto>
+                                <ActionOppositeStupidSpeak text={`Show those trashy losers we mean business!`} />
+                                <ActionOppositeStupidSpeak text={`All the world's cimmarolls belong to MOUSE!`} />
+                                <ActionOppositeStupidSpeak text={`That monke is about meet his maker!`} />
+                            </Lotto>
                             <FunctionCall fn={() => {  spawnText("+$10"); game.gameManager.score += 10 }} />
                         </Sequence>
                         <Sequence cond={() => Boolean(game.gameManager.energy === 3)}>
-                            <ActionPlayerSpeak text={`You guys rock!`} />
-                            <ActionConnorSpeak text={`Cheers.`} />
-                            <ActionChrisSpeak text={`I'd rather be reading my book.`} />
+                            <ActionPlayerStupidSpeak text={`We got three cimmarolls!`} />
+                            <Lotto>
+                                <ActionOppositeSpeak text={`Viewer numbers are rising! Let's go!!`} />
+                                <ActionOppositeSpeak text={`We can do this!!`} />
+                            </Lotto>
                             <FunctionCall fn={() => {  spawnText("+$100"); game.gameManager.score += 100 }} />
                         </Sequence>
                         <Sequence cond={() => Boolean(game.gameManager.energy === 4)}>
-                            <ActionPlayerSpeak text={`YOU GUYS ARE CRUSHING IT!`} />
-                            <ActionConnorSpeak text={`Let's GO!`} />
-                            <ActionChrisSpeak text={`I can see the combini!`} />
+                            <ActionPlayerSpeak text={`We got four cimmarolls!!`} />
+                            <Lotto>
+                                <ActionOppositeSpeak text={`Yeah!! Chat is going nuts!!!`} />
+                                <ActionOppositeSpeak text={`POGGERS!!!`} />
+                            </Lotto>
                             <FunctionCall fn={() => {  spawnText("+$1,000"); game.gameManager.score += 1000 }} />
                         </Sequence>
                         <Sequence cond={() => Boolean(game.gameManager.energy === 5)}>
+                            <ActionPlayerSpeak text={`We got five cimmarolls!!`} />
                             <Lotto>
-                                <Sequence>
-                                    <ActionPlayerSpeak text={`It's almost dinner time!`} />
-                                    <ActionConnorSpeak text={`OH GOD, YES!!!!`} />
-                                    <ActionChrisSpeak text={`Better be fried chicken!`} />
-                                </Sequence>
-                                <Sequence>
-                                    <ActionPlayerSpeak text={`Legend has it there is a smoking hot onsen at the end of this cycle...`} />
-                                    <ActionConnorSpeak text={`Let's GO!!!!`} />
-                                    <ActionChrisSpeak text={`Connor wait up!`} />
-                                </Sequence>
+                                <ActionOppositeSpeak text={`WAHOO!! Donations are pouring in left and right!`} />
+                                <ActionOppositeSpeak text={`WAHOO!! Plasma for everyone!!!`} />
                             </Lotto>
                             <FunctionCall fn={() => { spawnText("+$10,000"); game.gameManager.score += 10000 }} />
                         </Sequence>
@@ -286,7 +312,7 @@ export default function PlaySceneBtree(props) {
                 <FunctionCall fn={() => {game.gameManager.distance += 1} }/>
                 <HandleAfterBurnerSequence />
                 <Parallel>
-                    <ActionPlayerSpeak text={'Hey guys!'} />
+                    <ActionPlayerSpeak text={(hero.heroType instanceof IronmouseHeroType || scene.stageLevelName === 'hokkaido')  ? 'Hey guys!' : 'Hey mouse!'} />
                     <ActionTween waitForCompletion={true} tweenConfig={() => ({
                         targets: scene.bikes,
                         x: "-=360",
@@ -304,7 +330,7 @@ export default function PlaySceneBtree(props) {
 
     function HandleGameCompletedSequence(props) {
         return (
-            <Sequence {...props} cond={() => game.gameManager.distance >= 249.9 }>
+            <Sequence {...props} cond={() => game.gameManager.distance >= (scene.dist - 0.1) }>
                 <ActionDisableControls />
                 <Sequence step={() => { scene.warpTileSprite.tilePositionX += 32; }}>
                     <FunctionCall fn={() => {
@@ -502,6 +528,30 @@ export default function PlaySceneBtree(props) {
                 scene.dialogBox.setVisible(true);
 
             let avatarIndex = hero.heroType instanceof IronmouseHeroType ? 5 : 3;
+            scene.dialogBox.avatarImg.setTexture('avatars', avatarIndex);
+            await scene.dialogBox.typewriteBitmapText(props.text);
+            return NodeState.SUCCEEDED;
+        }, props)
+    }
+
+    function ActionOppositeSpeak(props: {text: string }) {
+        return wrapActionNode('ActionOppositeSpeak', async (node: any) => {
+            if(!scene.dialogBox.visible)
+                scene.dialogBox.setVisible(true);
+
+            let avatarIndex = hero.heroType instanceof IronmouseHeroType ? 3 : 5;
+            scene.dialogBox.avatarImg.setTexture('avatars', avatarIndex);
+            await scene.dialogBox.typewriteBitmapText(props.text);
+            return NodeState.SUCCEEDED;
+        }, props)
+    }
+
+    function ActionOppositeStupidSpeak(props: {text: string }) {
+        return wrapActionNode('ActionOppositeStupidSpeak', async (node: any) => {
+            if(!scene.dialogBox.visible)
+                scene.dialogBox.setVisible(true);
+
+            let avatarIndex = hero.heroType instanceof IronmouseHeroType ? 2 : 4;
             scene.dialogBox.avatarImg.setTexture('avatars', avatarIndex);
             await scene.dialogBox.typewriteBitmapText(props.text);
             return NodeState.SUCCEEDED;

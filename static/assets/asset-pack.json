@@ -370,6 +370,27 @@
             },
             {
                 "url": [
+                    "assets/sfx/sfx-get.wav"
+                ],
+                "type": "audio",
+                "key": "sfx-get"
+            },
+            {
+                "url": [
+                    "assets/sfx/sfx-hurt.wav"
+                ],
+                "type": "audio",
+                "key": "sfx-hurt"
+            },
+            {
+                "url": [
+                    "assets/sfx/sfx-select.wav"
+                ],
+                "type": "audio",
+                "key": "sfx-select"
+            },
+            {
+                "url": [
                     "assets/sfx/sfxAfterBurner.wav"
                 ],
                 "type": "audio",

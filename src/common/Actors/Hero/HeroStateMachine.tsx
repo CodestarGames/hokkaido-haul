@@ -49,6 +49,7 @@ export function HeroStateMachine(props) {
 
         },
         onExit() {
+            getHeroBody().setGravityY(2000)
             //hero.stop();
         }
     })
@@ -283,6 +284,7 @@ export function HeroStateMachine(props) {
     })
     .addState('hurt', {
         onEnter() {
+            scene.sound.play('sfx-hurt', {volume: 0.8});
             hero.play(hero.getFormattedAnimName('hurt'), true)
             getHeroBody().setVelocityY(-CONST_BOUNCE_JUMP_VELOCITY * 1.75);
             scene.gameManager.gameSpeed = 1;

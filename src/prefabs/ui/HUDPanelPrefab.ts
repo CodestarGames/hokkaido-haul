@@ -34,7 +34,7 @@ export default class HUDPanelPrefab extends Phaser.GameObjects.Container {
 		this.add(scoreText);
 
 		// KMText
-		const kMText = scene.add.bitmapText(18, 23, "pixel", "Distance: 0km of 250");
+		const kMText = scene.add.bitmapText(18, 23, "pixel", "Distance: 0km of 200");
 		kMText.scaleX = 2;
 		kMText.scaleY = 2.5;
 		kMText.tintFill = true;
@@ -42,7 +42,7 @@ export default class HUDPanelPrefab extends Phaser.GameObjects.Container {
 		kMText.tintTopRight = 5013592;
 		kMText.tintBottomLeft = 5013592;
 		kMText.tintBottomRight = 5013592;
-		kMText.text = "Distance: 0km of 250";
+		kMText.text = "Distance: 0km of 200";
 		kMText.fontSize = 6;
 		kMText.maxWidth = 358;
 		this.add(kMText);

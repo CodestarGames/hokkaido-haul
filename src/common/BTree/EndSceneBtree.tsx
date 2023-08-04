@@ -71,8 +71,8 @@ export default function EndSceneBtree(props) {
     function HandleGameLoopSequence(props) {
         return (
             <Sequence {...props} cond={() => !hero.animStateMachine.isCurrentState('died')}>
-                <Wait duration={10} exit={() => { incGameSpeed() }} />
-                <Wait duration={100} exit={() => { incGameScore() }} />
+                <Wait duration={40} exit={() => { incGameSpeed() }} />
+                <Wait duration={400} exit={() => { incGameScore() }} />
             </Sequence>
         );
     }
@@ -403,7 +403,7 @@ export default function EndSceneBtree(props) {
                     body.setCollideWorldBounds(true);
                     body.setAllowGravity(true);
                 }} />
-                <ActionPlayerSpeak text={`YEE HAW!!!!!!!!!!!`}  />
+                <ActionPlayerSpeak text={`YEE-HAW!!!!!!!`}  />
                 <ActionCloseDialog />
                 <ActionEnableControls exit={(bb) => {
                     bb.introDone = true;

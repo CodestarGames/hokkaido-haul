@@ -12,7 +12,8 @@ export class _JumpAction extends Mixin(GeneratorActionMixin, Action) {
     }
 
     onStart = () => {
-
+        this.hero.jumpStep = 1;
+        this.scene.time.delayedCall(220, () => { this.hero.jumpStep = 20;})
     }
 
     onComplete = () => {
@@ -44,7 +45,7 @@ export class _JumpAction extends Mixin(GeneratorActionMixin, Action) {
                     //this.hero.animStateMachine.setState('fall');
                 } else {
                     // hero is allowed to jump higher (not yet 15 frames of jumping)
-                    this.hero.jumpStep++;
+                    //this.hero.jumpStep++;
                     this.actor.body.velocity.y = -this.hero.heroType.jumpVel;
                     yield ActionResult.RUNNING;
                 }

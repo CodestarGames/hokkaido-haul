@@ -149,7 +149,7 @@ export default class CharacterSelectScene extends SceneExtended {
 
 		if(this.controls.up.isPressed) {
 			if(this.selectRect.y !== 147)
-				this.sound.play('sfxStart', {volume: 0.2});
+				this.sound.play('sfx-select', {volume: 0.4});
 			this.selectRect.setPosition(239, 147);
 			this.van_title.play('anim-player-van-idle', true);
 			this.mouse_title.anims.stop();
@@ -158,7 +158,7 @@ export default class CharacterSelectScene extends SceneExtended {
 
 		if(this.controls.down.isPressed) {
 			if(this.selectRect.y !== 300)
-				this.sound.play('sfxStart', {volume: 0.2});
+				this.sound.play('sfx-select', {volume: 0.4});
 			this.selectRect.setPosition(239, 300);
 			this.van_title.anims.stop();
 			this.mouse_title.play('anim-ironmouse-idle', true);
